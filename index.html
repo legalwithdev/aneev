@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aneev — Smart Wellness for Every Indian</title>
+<meta name="description" content="Aneev — verified wellness answers for students and healthcare workers: AI agent with sourced answers (WHO/CDC/Govt of India), teleconsultations, wellness records and product shop.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f8f7f2;
+    --surface:#ffffff;
+    --surface-2:#f1efe8;
+    --border:rgba(26,46,53,.10);
+    --border-strong:rgba(26,46,53,.18);
+    --text:#182b32;
+    --text-dim:#5c6f76;
+    --teal:#0e7c86;
+    --teal-deep:#0a5c64;
+    --teal-dim:rgba(14,124,134,.09);
+    --sage:#5f7f34;
+    --sage-dim:rgba(95,127,52,.10);
+    --amber:#b45309;
+    --amber-dim:rgba(180,83,9,.10);
+    --rose:#be123c;
+    --shadow-sm:0 1px 2px rgba(24,43,50,.05);
+    --shadow-md:0 6px 24px rgba(24,43,50,.08);
+    --shadow-lg:0 18px 50px rgba(24,43,50,.14);
+    --radius:14px;
+    --font-body:'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'Azeret Mono','Courier New',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    background:
+      radial-gradient(900px 420px at 85% -5%, rgba(14,124,134,.07), transparent 60%),
+      radial-gradient(700px 380px at 5% 12%, rgba(95,127,52,.06), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:rgba(14,124,134,.2)}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--font-mono)}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(248,247,242,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+  .logo svg{width:34px;height:34px}
+  .logo .tag{font-family:var(--font-mono);font-size:.62rem;font-weight:500;color:var(--teal-deep);background:var(--teal-dim);border:1px solid rgba(14,124,134,.25);padding:2px 8px;border-radius:99px;margin-left:4px}
+  .nav-links{display:flex;gap:28px;font-size:.92rem;font-weight:600;color:var(--text-dim)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--teal-deep)}
+  .nav-actions{display:flex;gap:12px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-body);font-weight:700;font-size:.92rem;
+    border-radius:10px;padding:11px 20px;cursor:pointer;
+    border:1px solid transparent;transition:all .2s;white-space:nowrap;
+  }
+  .btn-primary{background:var(--teal);color:#fff}
+  .btn-primary:hover{background:var(--teal-deep);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn-ghost{background:transparent;border-color:var(--border-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .cart-btn{position:relative;background:var(--surface);border:1px solid var(--border-strong);border-radius:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+  .cart-btn:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .cart-count{
+    position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;
+    background:var(--rose);color:#fff;font-size:.68rem;font-weight:700;
+    border-radius:99px;display:flex;align-items:center;justify-content:center;
+    padding:0 5px;opacity:0;transform:scale(.5);transition:all .2s;
+  }
+  .cart-count.show{opacity:1;transform:scale(1)}
+  @media(max-width:840px){.nav-links{display:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:88px 0 72px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.08em;
+    color:var(--teal-deep);background:var(--teal-dim);
+    border:1px solid rgba(14,124,134,.22);padding:6px 14px;border-radius:99px;margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h1{font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin-bottom:20px}
+  h1 em{font-style:normal;color:var(--teal-deep);position:relative}
+  .hero p.lead{font-size:1.08rem;color:var(--text-dim);max-width:34rem;margin-bottom:32px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-note{margin-top:26px;font-size:.8rem;color:var(--text-dim);display:flex;align-items:center;gap:8px}
+  .hero-note svg{flex:none;color:var(--sage)}
+
+  .hero-card{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:20px;padding:26px;box-shadow:var(--shadow-lg);
+  }
+  .hero-card .hc-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .hc-avatar{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--teal-deep));display:flex;align-items:center;justify-content:center;color:#fff;flex:none}
+  .hc-name{font-weight:700;font-size:.92rem}
+  .hc-status{font-size:.72rem;color:var(--sage);display:flex;align-items:center;gap:5px}
+  .hc-status .dot{width:6px;height:6px;background:var(--sage);border-radius:50%}
+  .hc-msg{
+    background:var(--teal-dim);border:1px solid rgba(14,124,134,.15);
+    border-radius:4px 14px 14px 14px;padding:12px 15px;font-size:.86rem;margin-bottom:10px;
+  }
+  .hc-msg.user{background:var(--surface-2);border-color:var(--border);border-radius:14px 4px 14px 14px;margin-left:auto;max-width:85%}
+  .hc-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .hc-chip{
+    font-family:var(--font-mono);font-size:.68rem;font-weight:500;color:var(--teal-deep);
+    background:var(--surface);border:1px solid rgba(14,124,134,.3);
+    padding:5px 11px;border-radius:99px;cursor:pointer;transition:all .2s;
+  }
+  .hc-chip:hover{background:var(--teal);color:#fff}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:36px}.hero{padding:56px 0 48px}}
+
+  /* ---------- Sections ---------- */
+  section{padding:72px 0}
+  .sec-label{
+    font-family:var(--font-mono);font-size:.7rem;font-weight:600;letter-spacing:.12em;
+    color:var(--teal-deep);text-transform:uppercase;display:flex;align-items:center;gap:9px;margin-bottom:14px;
+  }
+  .sec-label::before{content:"";width:22px;height:1.5px;background:var(--teal)}
+  h2{font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:-.025em;font-weight:800;line-height:1.2;margin-bottom:14px}
+  .sec-sub{color:var(--text-dim);max-width:38rem;margin-bottom:44px}
+
+  /* Problems */
+  .problems{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .prob{
+    background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;transition:all .25s;
+  }
+  .prob:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+  .prob .p-num{font-family:var(--font-mono);font-size:.72rem;color:var(--amber);margin-bottom:12px;font-weight:600}
+  .prob h3{font-size:1.02rem;font-weight:700;margin-bottom:8px}
+  .prob p{font-size:.87rem;color:var(--text-dim)}
+  @media(max-width:920px){.prob-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.prob-grid{grid-template-columns:1fr}}
+
+  /* Solutions */
+  .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .sol{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;transition:all .25s;position:relative;overflow:hidden;
+  }
+  .sol::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);opacity:0;transition:opacity .25s}
+  .sol:hover::after{opacity:1}
+  .sol:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .sol-icon{
+    width:46px;height:46px;border-radius:13px;background:var(--teal-dim);
+    display:flex;align-items:center;justify-content:center;color:var(--teal-deep);margin-bottom:18px;
+  }
+  .sol:nth-child(2) .sol-icon{background:var(--sage-dim);color:var(--sage)}
+  .sol:nth-child(3) .sol-icon{background:var(--amber-dim);color:var(--amber)}
+  .sol:nth-child(5) .sol-icon{background:var(--sage-dim);color:var(--sage)}
+  .sol:nth-child(6) .sol-icon{background:var(--amber-dim);color:var(--amber)}
+  .sol h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+  .sol p{font-size:.87rem;color:var(--text-dim)}
+  .sol .badge{
+    display:inline-block;margin-top:14px;font-family:var(--font-mono);font-size:.64rem;
+    font-weight:600;color:var(--teal-deep);background:var(--teal-dim);
+    padding:3px 10px;border-radius:99px;border:1px solid rgba(14,124,134,.2);
+  }
+  @media(max-width:920px){.sol-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.sol-grid{grid-template-columns:1fr}}
+
+  /* Stats band */
+  .stats-band{
+    background:linear-gradient(135deg,var(--teal-deep),var(--teal));
+    border-radius:22px;padding:46px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    color:#fff;box-shadow:var(--shadow-lg);
+  }
+  .stat{text-align:center}
+  .stat .n{font-size:2.3rem;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+  .stat .l{font-family:var(--font-mono);font-size:.7rem;opacity:.85;margin-top:6px;letter-spacing:.05em}
+  @media(max-width:840px){.stats-band{grid-template-columns:1fr 1fr;padding:36px 28px}}
+
+  /* ---------- Shop ---------- */
+  .shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+  .filters{display:flex;gap:9px;flex-wrap:wrap}
+  .filter{
+    font-family:var(--font-mono);font-size:.74rem;font-weight:500;
+    padding:8px 16px;border-radius:99px;cursor:pointer;
+    border:1px solid var(--border-strong);background:var(--surface);color:var(--text-dim);
+    transition:all .2s;
+  }
+  .filter:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .filter.active{background:var(--teal);border-color:var(--teal);color:#fff}
+  .shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:1020px){.shop-grid{grid-template-columns:1fr 1fr 1fr}}
+  @media(max-width:760px){.shop-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.shop-grid{grid-template-columns:1fr}}
+
+  .prod{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;transition:all .25s;
+  }
+  .prod:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+  .prod-img{
+    height:130px;display:flex;align-items:center;justify-content:center;color:#fff;
+  }
+  .prod-img svg{width:44px;height:44px;opacity:.95}
+  .pi-devices{background:linear-gradient(135deg,#0a5c64,#0e7c86)}
+  .pi-medicines{background:linear-gradient(135deg,#42621d,#5f7f34)}
+  .pi-wellness{background:linear-gradient(135deg,#8a4a12,#b45309)}
+  .pi-care{background:linear-gradient(135deg,#0e6b8a,#1391b5)}
+  .prod-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .prod-cat{font-family:var(--font-mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+  .prod-name{font-size:.95rem;font-weight:700;line-height:1.35}
+  .prod-desc{font-size:.78rem;color:var(--text-dim);flex:1}
+  .prod-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+  .prod-price{font-weight:800;font-size:1.05rem;color:var(--teal-deep)}
+  .prod-price small{font-size:.68rem;color:var(--text-dim);font-weight:500}
+  .add-btn{
+    background:var(--teal-dim);color:var(--teal-deep);border:1px solid rgba(14,124,134,.3);
+    font-family:var(--font-body);font-weight:700;font-size:.76rem;
+    padding:8px 14px;border-radius:9px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;
+  }
+  .add-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .add-btn.added{background:var(--sage);color:#fff;border-color:var(--sage)}
+
+  /* ---------- AI section ---------- */
+  .ai-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .ai-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:start}
+  @media(max-width:920px){.ai-grid{grid-template-columns:1fr}}
+  .ai-feat{display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed var(--border)}
+  .ai-feat:last-child{border-bottom:none}
+  .ai-feat .k{font-family:var(--font-mono);font-size:.7rem;font-weight:600;color:var(--teal-deep);background:var(--teal-dim);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+  .ai-feat h4{font-size:.92rem;font-weight:700;margin-bottom:3px}
+  .ai-feat p{font-size:.82rem;color:var(--text-dim)}
+
+  /* ---------- Chat widget ---------- */
+  .chat-fab{
+    position:fixed;bottom:24px;right:24px;z-index:80;
+    width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#fff;
+    box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;
+    transition:transform .2s;
+  }
+  .chat-fab:hover{transform:scale(1.07)}
+  .chat-panel{
+    position:fixed;bottom:96px;right:24px;z-index:80;
+    width:min(380px,calc(100vw - 32px));height:540px;max-height:calc(100vh - 130px);
+    background:var(--surface);border:1px solid var(--border-strong);border-radius:18px;
+    box-shadow:var(--shadow-lg);display:flex;flex-direction:column;overflow:hidden;
+    opacity:0;transform:translateY(14px) scale(.97);pointer-events:none;
+    transition:all .25s cubic-bezier(.2,.9,.3,1.1);
+  }
+  .chat-panel.open{opacity:1;transform:none;pointer-events:auto}
+  .chat-head{
+    background:linear-gradient(135deg,var(--teal-deep),var(--teal));color:#fff;
+    padding:16px 18px;display:flex;align-items:center;gap:12px;
+  }
+  .chat-head .hc-avatar{width:38px;height:38px}
+  .chat-title{font-weight:700;font-size:.95rem;line-height:1.2}
+  .chat-sub{font-size:.7rem;opacity:.85;display:flex;align-items:center;gap:5px}
+  .chat-sub .dot{width:6px;height:6px;border-radius:50%;background:#7ee2a8}
+  .chat-close{margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .chat-close:hover{background:rgba(255,255,255,.28)}
+  .chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+  .chat-msgs::-webkit-scrollbar{width:5px}
+  .chat-msgs::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:99px}
+  .msg{max-width:82%;padding:10px 14px;font-size:.85rem;line-height:1.5;border-radius:4px 14px 14px 14px;animation:fadeUp .25s both}
+  .msg.bot{background:var(--surface);border:1px solid var(--border);align-self:flex-start}
+  .msg.user{background:var(--teal-deep);color:#fff;align-self:flex-end;border-radius:14px 4px 14px 14px}
+  .msg b{font-weight:700}
+  .typing{display:flex;gap:4px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:4px 14px 14px 14px;align-self:flex-start}
+  .typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}
+  .typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+  .chat-chips{display:flex;gap:7px;flex-wrap:wrap;padding:0 16px 10px;background:var(--bg)}
+  .chat-input-row{display:flex;gap:9px;padding:12px 14px;border-top:1px solid var(--border);background:var(--surface)}
+  .chat-input-row input{
+    flex:1;border:1px solid var(--border-strong);border-radius:10px;padding:10px 14px;
+    font-family:var(--font-body);font-size:.86rem;outline:none;background:var(--bg);color:var(--text);
+    transition:border-color .2s;min-width:0;
+  }
+  .chat-input-row input:focus{border-color:var(--teal)}
+  .chat-input-row button{
+    background:var(--teal);border:none;color:#fff;width:42px;height:42px;border-radius:10px;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .2s;
+  }
+  .chat-input-row button:hover{background:var(--teal-deep)}
+
+  /* ---------- Cart drawer ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(24,43,50,.4);z-index:90;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(2px)}
+  .overlay.show{opacity:1;pointer-events:auto}
+  .cart-drawer{
+    position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);z-index:95;
+    background:var(--surface);box-shadow:var(--shadow-lg);
+    transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.9,.3,1);
+    display:flex;flex-direction:column;
+  }
+  .cart-drawer.open{transform:none}
+  .cart-head{padding:20px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+  .cart-head h3{font-size:1.1rem;font-weight:800}
+  .cart-items{flex:1;overflow-y:auto;padding:16px 22px;display:flex;flex-direction:column;gap:14px}
+  .cart-item{display:flex;gap:14px;align-items:center;border:1px solid var(--border);border-radius:12px;padding:12px}
+  .ci-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}
+  .ci-info{flex:1;min-width:0}
+  .ci-name{font-size:.85rem;font-weight:700;overflow-wrap:break-word}
+  .ci-price{font-size:.76rem;color:var(--text-dim)}
+  .ci-qty{display:flex;align-items:center;gap:8px}
+  .qty-btn{width:26px;height:26px;border-radius:7px;border:1px solid var(--border-strong);background:var(--surface);cursor:pointer;font-weight:700;font-size:.9rem;color:var(--text);display:flex;align-items:center;justify-content:center;transition:all .15s}
+  .qty-btn:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .ci-qty .q{font-family:var(--font-mono);font-size:.85rem;font-weight:600;min-width:16px;text-align:center}
+  .ci-remove{background:none;border:none;color:var(--rose);cursor:pointer;font-size:.72rem;font-weight:600;text-decoration:underline;padding:0}
+  .cart-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text-dim);padding:30px;text-align:center}
+  .cart-foot{border-top:1px solid var(--border);padding:18px 22px;display:flex;flex-direction:column;gap:12px}
+  .cart-total{display:flex;justify-content:space-between;font-weight:800;font-size:1.05rem}
+  .cart-total small{font-weight:500;color:var(--text-dim);font-size:.74rem}
+  .cart-foot .btn{justify-content:center}
+
+  /* ---------- Checkout modal ---------- */
+  .modal{
+    position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+    background:rgba(24,43,50,.5);padding:20px;opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .modal.show{opacity:1;pointer-events:auto}
+  .modal-card{
+    background:var(--surface);border-radius:18px;padding:30px;width:min(460px,100%);
+    box-shadow:var(--shadow-lg);max-height:90vh;overflow-y:auto;
+    transform:translateY(12px);transition:transform .25s;
+  }
+  .modal.show .modal-card{transform:none}
+  .modal-card h3{font-size:1.2rem;font-weight:800;margin-bottom:4px}
+  .modal-card .sub{font-size:.8rem;color:var(--text-dim);margin-bottom:22px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.76rem;font-weight:700;margin-bottom:5px}
+  .field input,.field textarea{
+    width:100%;border:1px solid var(--border-strong);border-radius:10px;padding:11px 13px;
+    font-family:var(--font-body);font-size:.88rem;outline:none;background:var(--bg);color:var(--text);
+    transition:border-color .2s;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--teal)}
+  .pay-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+  .pay-opt{
+    border:1.5px solid var(--border-strong);border-radius:11px;padding:13px;cursor:pointer;
+    display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;transition:all .2s;
+  }
+  .pay-opt:hover{border-color:var(--teal)}
+  .pay-opt input{accent-color:var(--teal)}
+  .pay-opt.selected{border-color:var(--teal);background:var(--teal-dim)}
+  .order-summary{background:var(--bg);border:1px solid var(--border);border-radius:11px;padding:14px;margin-bottom:18px}
+  .order-summary .row{display:flex;justify-content:space-between;font-size:.83rem;padding:3px 0;color:var(--text-dim)}
+  .order-summary .row.total{font-weight:800;color:var(--text);border-top:1px dashed var(--border-strong);margin-top:8px;padding-top:10px;font-size:.95rem}
+  .success-box{text-align:center;padding:14px 0}
+  .success-box .tick{
+    width:64px;height:64px;border-radius:50%;background:var(--sage-dim);color:var(--sage);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+  }
+  .success-box h3{margin-bottom:8px}
+  .success-box p{font-size:.86rem;color:var(--text-dim);margin-bottom:6px}
+  .success-box .oid{font-family:var(--font-mono);font-weight:600;color:var(--teal-deep);background:var(--teal-dim);padding:6px 14px;border-radius:8px;display:inline-block;margin:10px 0 18px;font-size:.9rem}
+
+  /* ---------- Footer ---------- */
+  footer{background:#13272d;color:#c7d4d8;padding:56px 0 32px;margin-top:0}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  @media(max-width:840px){.foot-grid{grid-template-columns:1fr}}
+  footer h4{color:#fff;font-size:.85rem;font-weight:700;margin-bottom:14px}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  footer ul a{font-size:.85rem;opacity:.8;transition:opacity .2s}
+  footer ul a:hover{opacity:1;color:#7ed4dc}
+  .foot-about p{font-size:.85rem;opacity:.75;margin-top:12px;max-width:26rem}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.1);padding-top:24px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:.74rem;opacity:.6;font-family:var(--font-mono);
+  }
+
+  /* ---------- Toast ---------- */
+  .toast{
+    position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(10px);
+    background:#182b32;color:#fff;padding:11px 22px;border-radius:11px;font-size:.85rem;font-weight:600;
+    box-shadow:var(--shadow-lg);z-index:110;opacity:0;pointer-events:none;transition:all .3s;
+    display:flex;align-items:center;gap:9px;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%)}
+
+  /* ---------- Animations ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <nav class="wrap">
+    <a href="#" class="logo" aria-label="Aneev home">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect width="40" height="40" rx="11" fill="#0e7c86"/>
+        <path d="M12 26V16c0-1 .3-1.8.9-2.4.6-.6 1.4-.9 2.4-.9h11.4v4H16v3.4h8.3v4H16V26h11v4H15.3c-2.2 0-3.3-1.1-3.3-3.3z" fill="#fff"/>
+      </svg>
+      Aneev
+      <span class="tag">WELLNESS</span>
+    </a>
+    <div class="nav-links">
+      <a href="#problems">Problems</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#assistant">AI Assistant</a>
+      <a href="#shop">Shop</a>
+    </div>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="btn btn-primary" onclick="openChat()">Ask Aneev Agent</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>AI-POWERED WELLNESS PLATFORM</span>
+      <h1>Wellness that <em>listens</em>, <em>understands</em> and <em>delivers</em>.</h1>
+      <p class="lead">Aneev brings a 24/7 AI wellness assistant, expert teleconsultations, digital wellness records and a complete wellness product shop — all in one place, built for every Indian family.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="openChat()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Chat with AI Assistant
+        </button>
+        <a class="btn-ghost btn" href="#shop">Browse Wellness Shop</a>
+      </div>
+      <div class="hero-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Free to use &middot; No ads &middot; Wellness data stays on your device
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <div class="hc-head">
+        <div class="hc-avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="0.5" width="16" height="19.5" rx="2"/><path d="M8 24h8" opacity="0"/><path d="M2 7h2M2 12h2M2 17h2M20 7h2M20 12h2M20 17h2"/><circle cx="12" cy="11" r="3"/></svg>
+        </div>
+        <div>
+          <div class="hc-name">Aneev Wellness Assistant</div>
+          <div class="hc-status"><span class="dot"></span>Online &middot; replies instantly</div>
+        </div>
+      </div>
+      <div class="hc-msg">Namaste! I'm your Aneev wellness assistant. I can help you check symptoms, find the right products, book a teleconsultation or track an order. How can I help today?</div>
+      <div class="hc-msg user">I've had a headache and mild fever since morning. What should I do?</div>
+      <div class="hc-msg">I can help with that. For mild fever with headache: stay hydrated, rest, and consider paracetamol as per label instructions. If fever crosses 103&deg;F or lasts beyond 3 days, please consult a physician — you can book a teleconsultation right here. Would you like me to suggest fever-care products?</div>
+      <div class="hc-chips">
+        <span class="hc-chip" onclick="openChat('I have fever, what should I do?')">I have fever</span>
+        <span class="hc-chip" onclick="openChat('Book a consultation')">Book consult</span>
+        <span class="hc-chip" onclick="openChat('Show me your products')">Show products</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROBLEMS ============ -->
+<section class="problems" id="problems">
+  <div class="wrap">
+    <div class="sec-label">THE PROBLEM</div>
+    <h2>Wellness in India is broken in familiar ways.</h2>
+    <p class="sec-sub">Aneev was built around the everyday problems families actually face — not around hospital bureaucracy.</p>
+    <div class="prob-grid">
+      <div class="prob reveal"><div class="p-num">/01</div><h3>Long queues, no clarity</h3><p>Hours spent in OPD lines just for a 2-minute consultation or a routine follow-up prescription refill.</p></div>
+      <div class="prob reveal"><div class="p-num">/02</div><h3>Scattered wellness records</h3><p>Prescriptions, reports and receipts in different WhatsApp chats, drawers and photo galleries — impossible to find when needed.</p></div>
+      <div class="prob reveal"><div class="p-num">/03</div><h3>Confusing self-diagnosis</h3><p>Random internet searches lead to anxiety or wrong self-medication instead of sensible next steps.</p></div>
+      <div class="prob reveal"><div class="p-num">/04</div><h3>Unreliable medicine access</h3><p>Fake or overpriced products, no way to compare, and forgotten refills for chronic conditions like diabetes and BP.</p></div>
+      <div class="prob reveal"><div class="p-num">/05</div><h3>Zero preventive care</h3><p>Most people seek medical help only in an emergency — no reminders, no check-up nudges, no wellness awareness.</p></div>
+      <div class="prob reveal"><div class="p-num">/06</div><h3>Costs without transparency</h3><p>No upfront prices for consultations, tests or products — bills surprise you after the service.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTIONS ============ -->
+<section id="solutions">
+  <div class="wrap">
+    <div class="sec-label">OUR SOLUTIONS</div>
+    <h2>One platform, every layer of everyday wellness.</h2>
+    <p class="sec-sub">Six integrated services that take you from "something feels off" to "sorted" — without leaving the Aneev app or website.</p>
+    <div class="sol-grid">
+      <div class="sol reveal">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="0.5" width="16" height="19.5" rx="2"/><path d="M2 7h2M2 12h2M2 17h2M20 7h2M20 12h2M20 17h2"/><circle cx="12" cy="11" r="3"/></svg></div>
+        <h3>24/7 AI Wellness Assistant</h3>
+        <p>Check symptoms, ask wellness questions and get sensible next steps anytime — in plain language, with clear disclaimers, never a scary WebMD spiral.</p>
+        <span class="badge">ALWAYS FREE</span>
+      </div>
+      <div class="sol reveal">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <h3>Expert Teleconsultations</h3>
+        <p>Video and audio consults with verified MBBS physicians and specialists — prescriptions delivered digitally, follow-ups at reduced rates.</p>
+        <span class="badge">FROM ₹199</span>
+      </div>
+      <div class="sol reveal">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <h3>Digital Wellness Records</h3>
+        <p>Every prescription, lab report and scan stored in one secure timeline. Share with any physician in one tap — data stored on your device.</p>
+        <span class="badge">PRIVATE BY DESIGN</span>
+      </div>
+      <div class="sol reveal">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>Medicine Reminders & Refills</h3>
+        <p>Smart reminders for daily medicines and auto-refill nudges before your strip runs out — built for diabetes, BP and thyroid patients.</p>
+        <span class="badge">CHRONIC CARE</span>
+      </div>
+      <div class="sol reveal">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><path d="M23 3H1v5h22z"/><path d="M10 12h4"/></svg></div>
+        <h3>Inbuilt Wellness Shop</h3>
+        <p>Devices, medicines, wellness and personal care with upfront pricing, transparent product info and home delivery — no fake reviews, no dark patterns.</p>
+        <span class="badge">BUILT-IN</span>
+      </div>
+      <div class="sol reveal">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+        <h3>Preventive Wellness Nudges</h3>
+        <p>Check-up reminders by age and risk profile, vaccination calendars for kids, and seasonal wellness advisories for your pincode.</p>
+        <span class="badge">PREVENTION FIRST</span>
+      </div>
+    </div>
+
+    <div style="height:56px"></div>
+    <div class="stats-band reveal">
+      <div class="stat"><div class="n">24/7</div><div class="l">AI ASSISTANT UPTIME</div></div>
+      <div class="stat"><div class="n">3 min</div><div class="l">AVG EXPERT CONNECT</div></div>
+      <div class="stat"><div class="n">1000+</div><div class="l">VERIFIED PRODUCTS</div></div>
+      <div class="stat"><div class="n">₹0</div><div class="l">COST TO GET STARTED</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section id="shop" class="problems">
+  <div class="wrap">
+    <div class="sec-label">WELLNESS SHOP</div>
+    <h2>Genuine products, honest prices.</h2>
+    <p class="sec-sub">Everything from BP monitors to wellness supplements — with the AI assistant ready to help you pick the right one.</p>
+    <div class="shop-toolbar">
+      <div class="filters" id="filters">
+        <span class="filter active" data-cat="all">All</span>
+        <span class="filter" data-cat="devices">Devices</span>
+        <span class="filter" data-cat="medicines">Medicines</span>
+        <span class="filter" data-cat="wellness">Wellness</span>
+        <span class="filter" data-cat="care">Personal Care</span>
+      </div>
+    </div>
+    <div class="shop-grid" id="shopGrid"></div>
+  </div>
+</section>
+
+<!-- ============ AI ASSISTANT SECTION ============ -->
+<section id="assistant">
+  <div class="wrap ai-grid">
+    <div>
+      <div class="sec-label">ANEEV AGENT — VERIFIED Q&A</div>
+      <h2>Verified wellness answers — students, healthcare workers, sabke liye.</h2>
+      <p class="sec-sub" style="margin-bottom:28px">Har answer curated knowledge base se aata hai — WHO, CDC aur Govt of India sources par based — source attribution ke saath. Koi guesswork nahi.</p>
+      <div class="ai-feat reveal">
+        <div class="k">01</div>
+        <div><h4>Verified, sourced answers</h4><p>25+ topics — har jawab ke saath uska source (WHO guidelines, MoHFW helplines, national rules). Bingе-search jaisa anxiety nahi.</p></div>
+      </div>
+      <div class="ai-feat reveal">
+        <div class="k">02</div>
+        <div><h4>Student wellness</h4><p>Exam stress, sleep, diet on budget, eye strain, caffeine limits, mental health helplines (Tele-MANAS 14416).</p></div>
+      </div>
+      <div class="ai-feat reveal">
+        <div class="k">03</div>
+        <div><h4>Healthcare worker corner</h4><p>WHO 5 moments of hand hygiene, PPE donning/doffing order, needle-stick PEP protocol, burnout, BMW waste segregation (India).</p></div>
+      </div>
+      <div class="ai-feat reveal">
+        <div class="k">04</div>
+        <div><h4>Emergency red-flags</h4><p>Emergency phrases pe turant 112/104 helpline numbers surface hote hain — generic advice nahi.</p></div>
+      </div>
+      <div style="margin-top:28px">
+        <button class="btn btn-primary" onclick="openChat()">Ask the agent</button>
+      </div>
+    </div>
+    <div class="hero-card reveal" style="box-shadow:var(--shadow-md)">
+      <div class="hc-head">
+        <div class="hc-avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="0.5" width="16" height="19.5" rx="2"/><circle cx="12" cy="11" r="3"/></svg>
+        </div>
+        <div>
+          <div class="hc-name">Try it right now</div>
+          <div class="hc-status"><span class="dot"></span>No signup · free forever</div>
+        </div>
+      </div>
+      <div class="hc-chips" style="margin:0">
+        <span class="hc-chip" onclick="openChat('Exam stress kaise manage karein?')">Exam stress</span>
+        <span class="hc-chip" onclick="openChat('Needle-stick injury pe kya karein?')">Needle-stick injury</span>
+        <span class="hc-chip" onclick="openChat('Hand hygiene — WHO 5 moments')">Hand hygiene</span>
+        <span class="hc-chip" onclick="openChat('Burnout ke signs kya hain?')">Burnout</span>
+        <span class="hc-chip" onclick="openChat('Kitni neend chahiye?')">Sleep</span>
+        <span class="hc-chip" onclick="openChat('Antibiotics kyun complete karne hote hain?')">Antibiotics</span>
+        <span class="hc-chip" onclick="openChat('Mental health help kab lena chahiye?')">Mental health</span>
+        <span class="hc-chip" onclick="openChat('Night shift health')">Night shift</span>
+      </div>
+      <p style="font-size:.78rem;color:var(--text-dim);margin-top:18px;border-top:1px dashed var(--border);padding-top:14px">
+        <strong>Disclaimer:</strong> The Aneev Agent provides general wellness information for education only, from curated published sources. It is not a substitute for professional medical advice, diagnosis or treatment. Always consult a qualified physician for medical concerns. In an emergency, call 112 (India) immediately.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a href="#" class="logo" style="color:#fff">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" style="width:30px;height:30px">
+            <rect width="40" height="40" rx="11" fill="#0e7c86"/>
+            <path d="M12 26V16c0-1 .3-1.8.9-2.4.6-.6 1.4-.9 2.4-.9h11.4v4H16v3.4h8.3v4H16V26h11v4H15.3c-2.2 0-3.3-1.1-3.3-3.3z" fill="#fff"/>
+          </svg>
+          Aneev
+        </a>
+        <p>Smart, affordable and honest wellness for every Indian family. AI assistance, expert consults, digital records and a shop you can trust — all in one place.</p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#assistant">AI Assistant</a></li>
+          <li><a href="#shop">Wellness Shop</a></li>
+          <li><a href="#problems">Why Aneev</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#" onclick="openChat('I need help');return false">Chat with us</a></li>
+          <li><a href="mailto:hello@aneev.in">hello@aneev.in</a></li>
+          <li><a href="tel:+911123456789">+91 11 2345 6789</a></li>
+          <li><a href="#" onclick="openChat('What is your return policy?');return false">Returns & refunds</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ANEEV WELLNESS &middot; MADE IN INDIA</span>
+      <span>EMERGENCY: 112 &middot; MEDICAL HELPLINE: 104</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CHAT WIDGET ============ -->
+<button class="chat-fab" onclick="toggleChat()" aria-label="Open AI assistant">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="0.5" fill="currentColor"/><circle cx="12" cy="10" r="0.5" fill="currentColor"/><circle cx="15" cy="10" r="0.5" fill="currentColor"/></svg>
+</button>
+
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Aneev AI Assistant">
+  <div class="chat-head">
+    <div class="hc-avatar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="0.5" width="16" height="19.5" rx="2"/><circle cx="12" cy="11" r="3"/></svg>
+    </div>
+    <div>
+      <div class="chat-title">Aneev Wellness Agent</div>
+      <div class="chat-sub"><span class="dot"></span>Verified answers &middot; 24/7</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Ask about symptoms, products, orders..." onkeydown="if(event.key==='Enter')sendMsg()" aria-label="Type your message">
+    <button onclick="sendMsg()" aria-label="Send">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="chat-close" style="background:var(--surface-2);color:var(--text)" onclick="closeCart()" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-total"><span>Subtotal <small>(incl. GST)</small></span><span id="cartTotal">₹0</span></div>
+    <div style="font-size:.74rem;color:var(--text-dim)">Free delivery above ₹499 &middot; 7-day easy returns</div>
+    <button class="btn btn-primary" onclick="openCheckout()">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div class="modal" id="checkoutModal" role="dialog" aria-label="Checkout">
+  <div class="modal-card" id="checkoutCard"></div>
+</div>
+
+<div class="toast" id="toast"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span id="toastMsg"></span></div>
+
+<script>
+/* ================================================================
+   ANEEV — PRODUCTS
+================================================================ */
+const ICONS = {
+  thermometer:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>',
+  bp:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="15" r="5"/><path d="M9 15V8"/><path d="M17 3l2 2-4 4-2-2z"/><path d="M14 6l1-1"/></svg>',
+  oximeter:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>',
+  glucometer:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>',
+  pill:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4" transform="rotate(-45 12 12)"/><path d="M8.5 15.5l7-7"/></svg>',
+  strips:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8"/></svg>',
+  vitamin:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-9A5.3 5.3 0 0 1 12 6.5 5.3 5.3 0 0 1 21.3 12C19 16.4 12 21 12 21z"/></svg>',
+  protein:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v6a6 6 0 0 1-6 6 6 6 0 0 1-6-6z"/><path d="M12 14v4M8 20h8"/></svg>',
+  sanitizer:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v4l-3 3v11a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9l-3-3V2"/><path d="M7 14h10"/></svg>',
+  mask:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14v6a7 7 0 0 1-14 0z"/><path d="M2 9v3M22 9v3M8 12h.01M16 12h.01"/></svg>',
+  cream:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1.5 12a2 2 0 0 1-2 2H6.5a2 2 0 0 1-2-2z"/><path d="M9 8V5h6v3"/></svg>'
+};
+const CAT_LABEL={devices:'Devices',medicines:'Medicines',wellness:'Wellness',care:'Personal Care'};
+const PRODUCTS=[
+ {id:1,name:'Digital Thermometer',cat:'devices',price:299,desc:'Fast & accurate readings in 10 seconds. Fever alarm and memory.',icon:'thermometer'},
+ {id:2,name:'BP Monitor (Automatic)',cat:'devices',price:1899,desc:'Upper-arm digital BP monitor with irregular heartbeat detection.',icon:'bp'},
+ {id:3,name:'Fingertip Pulse Oximeter',cat:'devices',price:849,desc:'SpO2 and pulse rate readings in 8 seconds. OLED display.',icon:'oximeter'},
+ {id:4,name:'Glucometer Kit + 25 Strips',cat:'devices',price:1249,desc:'Blood sugar monitoring kit with lancing device and carry case.',icon:'glucometer'},
+ {id:5,name:'Paracetamol 500mg (15 tabs)',cat:'medicines',price:32,desc:'For fever and mild-to-moderate pain. As per label directions.',icon:'pill'},
+ {id:6,name:'ORS Electrolyte Powder (Pack of 5)',cat:'medicines',price:95,desc:'Orange flavour WHO-formula ORS for dehydration and heat exhaustion.',icon:'strips'},
+ {id:7,name:'Vitamin D3 60K (4 sachets)',cat:'wellness',price:210,desc:'Weekly vitamin D supplementation, as commonly prescribed. Cholecalciferol.',icon:'vitamin'},
+ {id:8,name:'Multivitamin Tablets (60)',cat:'wellness',price:449,desc:'Daily multivitamin with 13 essential vitamins and minerals.',icon:'pill'},
+ {id:9,name:'Whey Protein Powder (500g)',cat:'wellness',price:1149,desc:'24g protein per scoop. Vanilla flavour. No added sugar.',icon:'protein'},
+ {id:10,name:'Hand Sanitizer (200ml)',cat:'care',price:99,desc:'70% alcohol gel sanitizer, kills 99.9% germs. Travel-friendly pump.',icon:'sanitizer'},
+ {id:11,name:'N95 Masks (Pack of 10)',cat:'care',price:399,desc:'5-layer N95 respirators with adjustable nose clip, BIS certified.',icon:'mask'},
+ {id:12,name:'Antiseptic Cream (30g)',cat:'care',price:125,desc:'For minor cuts, grazes and burns. Soothing, non-sting formula.',icon:'cream'}
+];
+
+/* ================================================================
+   SHOP + CART
+================================================================ */
+let cart=JSON.parse(localStorage.getItem('aneev_cart')||'[]');
+let activeCat='all';
+
+function saveCart(){localStorage.setItem('aneev_cart',JSON.stringify(cart));renderCartBadge();}
+function inr(n){return '\u20B9'+n.toLocaleString('en-IN');}
+
+function renderShop(){
+  const grid=document.getElementById('shopGrid');
+  const list=PRODUCTS.filter(p=>activeCat==='all'||p.cat===activeCat);
+  grid.innerHTML=list.map(p=>`
+    <div class="prod reveal in">
+      <div class="prod-img pi-${p.cat}">${ICONS[p.icon]}</div>
+      <div class="prod-body">
+        <div class="prod-cat">${CAT_LABEL[p.cat]}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-desc">${p.desc}</div>
+        <div class="prod-foot">
+          <div class="prod-price">${inr(p.price)}</div>
+          <button class="add-btn" onclick="addToCart(${p.id},this)">Add</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+document.getElementById('filters').addEventListener('click',e=>{
+  if(!e.target.classList.contains('filter'))return;
+  document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));
+  e.target.classList.add('active');
+  activeCat=e.target.dataset.cat;
+  renderShop();
+});
+
+function addToCart(id,btn){
+  const item=cart.find(c=>c.id===id);
+  if(item)item.qty++;
+  else{const p=PRODUCTS.find(x=>x.id===id);cart.push({id:p.id,qty:1});}
+  saveCart();renderCart();
+  if(btn){btn.classList.add('added');btn.textContent='Added';setTimeout(()=>{btn.classList.remove('added');btn.innerHTML='Add';},900);}
+  showToast('Added to cart');
+}
+function changeQty(id,d){
+  const item=cart.find(c=>c.id===id);if(!item)return;
+  item.qty+=d;
+  if(item.qty<=0)cart=cart.filter(c=>c.id!==id);
+  saveCart();renderCart();
+}
+function removeFromCart(id){cart=cart.filter(c=>c.id!==id);saveCart();renderCart();}
+
+function renderCartBadge(){
+  const n=cart.reduce((s,c)=>s+c.qty,0);
+  const el=document.getElementById('cartCount');
+  el.textContent=n;el.classList.toggle('show',n>0);
+}
+function cartTotal(){return cart.reduce((s,c)=>s+c.qty*PRODUCTS.find(p=>p.id===c.id).price,0);}
+
+function renderCart(){
+  const box=document.getElementById('cartItems');
+  if(!cart.length){
+    box.innerHTML=`<div class="cart-empty">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.4"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <div style="font-weight:700;color:var(--text)">Your cart is empty</div>
+      <div style="font-size:.82rem">Add products from the shop — the AI assistant can help you choose.</div>
+      <button class="btn btn-ghost" onclick="closeCart();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Browse shop</button>
+    </div>`;
+    document.getElementById('cartFoot').style.display='none';
+    return;
+  }
+  document.getElementById('cartFoot').style.display='flex';
+  box.innerHTML=cart.map(c=>{
+    const p=PRODUCTS.find(x=>x.id===c.id);
+    return `<div class="cart-item">
+      <div class="ci-icon pi-${p.cat}">${ICONS[p.icon]}</div>
+      <div class="ci-info">
+        <div class="ci-name">${p.name}</div>
+        <div class="ci-price">${inr(p.price)} each</div>
+        <button class="ci-remove" onclick="removeFromCart(${p.id})">Remove</button>
+      </div>
+      <div class="ci-qty">
+        <button class="qty-btn" onclick="changeQty(${p.id},-1)">&minus;</button>
+        <span class="q">${c.qty}</span>
+        <button class="qty-btn" onclick="changeQty(${p.id},1)">+</button>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('cartTotal').textContent=inr(cartTotal());
+}
+
+function openCart(){document.getElementById('cartDrawer').classList.add('open');document.getElementById('overlay').classList.add('show');}
+function closeCart(){document.getElementById('cartDrawer').classList.remove('open');document.getElementById('overlay').classList.remove('show');if(!document.getElementById('checkoutModal').classList.contains('show'))document.getElementById('overlay').classList.remove('show');}
+function closeAll(){closeCart();document.getElementById('checkoutModal').classList.remove('show');}
+
+/* ---------- Checkout ---------- */
+let payMethod='upi';
+function openCheckout(){
+  if(!cart.length){showToast('Your cart is empty');return;}
+  closeCart();
+  const m=document.getElementById('checkoutModal');
+  const card=document.getElementById('checkoutCard');
+  card.innerHTML=`
+    <h3>Checkout</h3>
+    <div class="sub">Demo checkout — no real payment is processed.</div>
+    <div class="field"><label>Full name</label><input id="coName" placeholder="Your name" autocomplete="name"></div>
+    <div class="field"><label>Phone</label><input id="coPhone" placeholder="10-digit mobile number" inputmode="tel" autocomplete="tel"></div>
+    <div class="field"><label>Delivery address</label><textarea id="coAddr" rows="2" placeholder="House no, street, city, pincode" autocomplete="street-address"></textarea></div>
+    <div class="field"><label>Payment method</label>
+      <div class="pay-opts">
+        <label class="pay-opt selected"><input type="radio" name="pay" value="upi" checked onchange="pickPay(this,'upi')">UPI</label>
+        <label class="pay-opt"><input type="radio" name="pay" value="cod" onchange="pickPay(this,'cod')">Cash on Delivery</label>
+      </div>
+    </div>
+    <div class="order-summary">
+      ${cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return `<div class="row"><span>${p.name} &times; ${c.qty}</span><span>${inr(p.price*c.qty)}</span></div>`;}).join('')}
+      <div class="row"><span>Delivery</span><span>${cartTotal()>=499?'FREE':'\u20B949'}</span></div>
+      <div class="row total"><span>Total</span><span>${inr(cartTotal()+(cartTotal()>=499?0:49))}</span></div>
+    </div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="placeOrder()">Place Order</button>
+    <div style="text-align:center;margin-top:12px"><button class="ci-remove" onclick="document.getElementById('checkoutModal').classList.remove('show');document.getElementById('overlay').classList.remove('show')">Back to cart</button></div>`;
+  m.classList.add('show');document.getElementById('overlay').classList.add('show');
+}
+function pickPay(r,v){
+  payMethod=v;
+  document.querySelectorAll('.pay-opt').forEach(o=>o.classList.remove('selected'));
+  r.closest('.pay-opt').classList.add('selected');
+}
+function placeOrder(){
+  const name=document.getElementById('coName').value.trim();
+  const phone=document.getElementById('coPhone').value.trim();
+  if(!name){showToast('Please enter your name');return;}
+  if(!/^\d{10}$/.test(phone.replace(/\D/g,''))){showToast('Please enter a valid 10-digit phone number');return;}
+  const total=cartTotal()+(cartTotal()>=499?0:49);
+  const oid='ANV'+Date.now().toString().slice(-8);
+  cart=[];saveCart();renderCart();
+  document.getElementById('checkoutCard').innerHTML=`
+    <div class="success-box">
+      <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h3>Order placed!</h3>
+      <p>Dhanyavaad, ${name.split(' ')[0]}! Your order is confirmed${payMethod==='cod'?' — pay on delivery':' via UPI (demo)'}.</p>
+      <div class="oid">${oid}</div>
+      <p>Estimated delivery: 2&ndash;4 business days.</p>
+      <p style="font-size:.76rem;margin-top:10px">This is a demo store — no payment was collected and no real order was placed.</p>
+      <button class="btn btn-primary" style="margin-top:18px" onclick="document.getElementById('checkoutModal').classList.remove('show');document.getElementById('overlay').classList.remove('show')">Continue</button>
+    </div>`;
+}
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function showToast(msg){
+  document.getElementById('toastMsg').textContent=msg;
+  document.getElementById('toast').classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>document.getElementById('toast').classList.remove('show'),2200);
+}
+
+/* ================================================================
+   ANEEV AGENT — verified knowledge base engine (students + HCWs)
+   Curated from WHO / CDC / Govt of India sources. Education only.
+================================================================ */
+const HELLO="Namaste! I'm the Aneev Wellness Assistant.";
+const CHIPS_DEFAULT=['Exam stress kaise manage karein?','Needle-stick injury pe kya karein?','Hand hygiene — WHO 5 moments','Burnout ke signs kya hain?','Kitni neend chahiye?','Antibiotics kyun complete karne hote hain?'];
+
+/* ---------------- VERIFIED KNOWLEDGE BASE ---------------- */
+const KB=[
+ // ============ STUDENTS ============
+ {t:'Exam stress & anxiety', who:'students', tags:['exam','stress','anxiety','padhai','test','tension','panic','nervous','pressure','board'],
+  a:"<b>Exam stress</b> — evidence-based ways to manage:<br><br>• <b>Breaks lo:</b> 25-50 min study + 5-10 min break ( Pomodoro method) — memory consolidate hoti hai<br>• <b>Sleep 7-9 hours:</b> all-nighters recall ko kam karte hain, badhate nahi<br>• <b>Move:</b> 20-30 min walk/exercise cortisol (stress hormone) girata hai<br>• <b>Caffeine limit:</b> raat ko energy drinks/coffee avoid — anxiety worsen hoti hai<br>• <b>Practice exams:</b> time-bound mock tests real exam anxiety 50%+ kam karte hain (research-backed)<br><br><b>Help lena normal hai:</b> agar 2+ hafte low mood, hopelessness, ya panic attacks — free 24/7 <b>Tele-MANAS: 14416</b> (Govt of India).",
+  src:"WHO stress management; Tele-MANAS (MoHFW, Govt of India)"},
+ {t:'Sleep — how much students need', who:'students', tags:['sleep','neend','insomnia','nind','tired','sona','night'],
+  a:"<b>Sleep facts (young adults):</b><br><br>• Age 18-25: <b>7-9 hours</b> nightly recommended<br>• Sleep hygiene: fixed sleep/wake time (weekends pe bhi), bedroom dark-cool-quiet, screens 1 hour pehle band<br>• Caffeine ka half-life ~5-6 hours — dopahar 4 baje ke baad avoid<br>• Bina neend ke: attention 30% girta hai, memory consolidation ruk jaati hai<br><br><b>Doctor se milo agar:</b> 3+ hafte se sone mein dikkat, ya din bhar neend aana.",
+  src:"US CDC Sleep; National Sleep Foundation"},
+ {t:'Healthy diet on a student budget', who:'students', tags:['diet','khana','food','nutrition','protein','bimaar','khana','Mess','anna','vitamin deficiency'],
+  a:"<b>Budget diet jo kaam karti hai:</b><br><br>• <b>Protein roz:</b> dal, chana, rajma, eggs, soya, dahi — sab saste hain<br>• <b>Thali rule:</b> half plate sabzi + fruit, quarter roti/rice, quarter dal/protein<br>• <b>Iron</b> (esp. women): palak, chana, dates — vitamin C (nimbu) ke saath lo, absorption badhta hai<br>• <b>Breakfast skip mat karo</b> — concentration girta hai<br>• Sugary drinks/energy drinks daily nahi — crash + anxiety<br><br>Agar lagta hai deficiency (thakan, palour, baal jhadna) — self-dose karne ke bajaye <b>CBC/thyroid test</b> karao, doctor se dekhao.",
+  src:"ICMR-NIN Dietary Guidelines, India"},
+ {t:'Eye strain from screens', who:'students', tags:['eye','aankh','screen','vision','dry','strain','laptop','mobile'],
+  a:"<b>Digital eye strain relief:</b><br><br>• <b>20-20-20 rule:</b> har 20 min pe, 20 feet door, 20 second dekho<br>• Screen 50-70 cm door, thoda neeche eye level se<br>• Consciously blink karo — dry eyes kam honge; zaroorat ho to lubricating drops<br>• Room lighting: screen se bright nahi<br><br>Blurred vision ya headache persistent ho to eye checkup (refractive error ho sakta hai).",
+  src:"American Academy of Ophthalmology"},
+ {t:'Caffeine — safe limits', who:'students', tags:['caffeine','coffee','energy drink','chai','chhutki','nasha'],
+  a:"<b>Caffeine limits (healthy adults):</b><br><br>• Max <b>400 mg/day</b> (~3-4 cups coffee, ya 5-6 cups chai)<br>• Teenagers: kam — 100 mg/day se zyada nahi recommended<br>• <b>Energy drinks:</b> caffeine + sugar combo — anxiety, palpitations, neend kharab<br>• Overdose signs: jitters, dil tez dhadakna, anxiety, haath kaanpna<br><br>Dependency real hai — rokoge to 2-4 din headache (withdrawal) — dheere-dheere kam karo.",
+  src:"US FDA caffeine guidance"},
+ {t:'Mental health — when to seek help', who:'students', tags:['depression','mental','udaas','mood','anxiety disorder','suicide','self harm','akela','hopeless','tension'],
+  a:"<b>Ye signs 2+ hafte se hain to help lena zaroori hai:</b><br><br>• Roz ka mood udas/khaali, kuch mein interest nahi<br>• Neend ya bhookh badal gayi (zyada/kam)<br>• Padhai/concentration mein girawat<br>• Hopelessness, ya khud ko dosh dena<br><br><b>Khud ko nuksan pahunchane ke thoughts — turant baat karo:</b><br>• <b>Tele-MANAS: 14416</b> — free, 24/7, 20+ languages (Govt of India)<br>• <b>KIRAN: 1800-599-0019</b><br>• Aas paas kisi bharosemand insaan ko batao — counsellor/teacher/parent<br><br>Mental health problem hone mein sharam ki baat nahi — diabetes ki tarah treatable hai.",
+  src:"Tele-MANAS (MoHFW); KIRAN Helpline (Govt of India)"},
+ {t:'Smoking & vaping — quitting', who:'students', tags:['smoking','cigarette','vape','tambaku','hookah','quit'],
+  a:"<b>Quit karne ke fayde timeline:</b><br><br>• 20 min: heart rate normal | 12 hours: CO normal | 2-12 hafte: circulation better | 1 saal: heart disease risk aadha<br>• Vaping 'safe' nahi — nicotine addiction + lung irritation<br><br><b>Kaise chhodo:</b> quit date fix karo, triggers (doston ke saath smoke breaks) replace karo, 2 hafte sabse mushkil — uske baad easier, craving peaks 3-5 min tak hoti hai — paani piyo/walk karo",
+  src:"WHO tobacco quitting; US CDC"},
+ {t:'Menstrual health basics', who:'students', tags:['period','menstrual','mahwari','cramps','pcod','pcos','periods'],
+  a:"<b>Period pain management:</b><br><br>• Garam pani ki bottle, light exercise/yoga asaan karta hai<br>• Paracetamol/ibuprofen label ke hisaab se — pehle din lena zyada effective<br>• Track karo (app/diary) — pattern samajh aayega<br><br><b>Doctor se milo agar:</b>• Dard itna ki school/college miss ho• Har 2 ghante se zyada pad change (heavy bleeding)• 3 mahine se miss ho raha hai (pregnancy nahi hai to) — PCOS/thyroid check karwao",
+  src:"WHO adolescent health resources"},
+ {t:'Hostel & shared living hygiene', who:'students', tags:['hostel','hygiene','infection','roommate','shared','fever friend'],
+  a:"<b>Shared spaces mein infections rokne ke rules:</b><br><br>• Haath dhona — khane se pehle, bathroom ke baad (20 sec soap)<br>• Towels, razors, bottles share mat karo<br>• Koi bimaar hai to uske utensils alag<br>• Kamre mein roz thodi hawa (ventilation) — airborne infections kam<br>• Flu season se pehle vaccination socho<br><br>Outbreak (chickenpox, typhoid, jaundice) hostel mein — authorities ko batao, chhupana spread badhata hai.",
+  src:"WHO infection prevention; US CDC"},
+
+ // ============ HEALTHCARE WORKERS ============
+ {t:'Hand hygiene — WHO 5 moments', who:'hcw', tags:['hand','hygiene','handwash','sanitizer','5 moments','haath dhona'],
+  a:"<b>WHO ke 5 Moments of Hand Hygiene:</b><br><br>1. Patient se <b>contact se pehle</b><br>2. Kisi bhi <b>aseptic procedure se pehle</b><br>3. <b>Body fluid exposure ke baad</b> (turant)<br>4. <b>Patient ke baad</b><br>5. <b>Patient ke surroundings ke baad</b><br><br><b>Method:</b> soap + water 40-60 sec | alcohol rub 20-30 sec<br>Nails chote, artificial nails/bangles avoid (guidelines).",
+  src:"WHO Hand Hygiene Guidelines"},
+ {t:'PPE — donning & doffing order', who:'hcw', tags:['ppe','gown','gloves','n95','mask','donning','doffing','kit pehnna'],
+  a:"<b>Donning (pehnne ka order):</b><br>1. Gown → 2. Mask/N95 (fit-check karo — seal hona chahiye) → 3. Goggles/face shield → 4. Gloves<br><br><b>Doffing (utaarne ka order):</b><br>1. Gloves → 2. Gown → 3. Eye protection → 4. Mask<br><br>• Doffing mein contamination sabse zyada hota hai — slow, deliberate movements<br>• N95 fit-test hospital policy ke hisab se periodic hona chahiye",
+  src:"US CDC PPE guidance"},
+ {t:'Needle-stick injury — immediate steps', who:'hcw', tags:['needlestick','needle','prick','injury','chubh','sharp','pep','hiv exposure'],
+  a:"<b>Needle-stick pe FORAN:</b><br><br>1. Site ko <b>soap + paani se dho</b> — 15 min tak flow ke neeche<br>2. <b>Squeeze mat karo</b> (blood ko dabna/nikalna — evidence khud ke against hai)<br>3. Wound pe antiseptic + dressing<br>4. <b>TURANT report karo</b> — infection control / supervisor ko<br>5. <b>PEP (post-exposure prophylaxis) assessment ASAP</b> — ideally <b>2 ghante ke andar</b>, max 72 ghante<br>6. Source patient ki testing protocol follow karo (HIV/HBV/HCV)<br><br>Der mat karo — PEP early = HIV prevention effective.",
+  src:"WHO/CDC post-exposure prophylaxis guidelines"},
+ {t:'Healthcare worker burnout', who:'hcw', tags:['burnout','thakan','exhausted','thak gaya','motivation','cynical','stress work','overworked'],
+  a:"<b>Burnout (WHO ICD-11 mein recognized occupational phenomenon) — 3 signs:</b><br><br>1. <b>Exhaustion:</b> rest ke baad bhi khatam energy<br>2. <b>Cynicism/detachment:</b> patients se ya kaam se mental doori<br>3. <b>Reduced efficacy:</b> 'kuch nahi hota mera' feeling<br><br><b>Kya karein:</b>• Ye weakness nahi — seek help (counsellor/peer support)• Kaam ki boundaries — off-duty mein sach mein off• Shift ke beech micro-breaks• Sleep aur khana burnout ke ilaaj ki buniyaad hain<br><br>Chronic burnout clinical errors badhata hai — patient safety ka sawal bhi hai.",
+  src:"WHO ICD-11; WHO mental health at work"},
+ {t:'Night shift health protocol', who:'hcw', tags:['night','shift','night duty','duty','rotation','sona nahi','circadian'],
+  a:"<b>Night shifts zyada mushkil kyun:</b> body ka clock (circadian rhythm) kharaab hota hai — digestion, mood, immunity sab affect.<br><br><b>Damage control (evidence-based):</b><br>• Shift se pehle 20-30 min nap<br>• Shift ke start mein bright light, end mein dim<br>• Caffeine shift ke <b>pehle aadhe</b> mein — aakhri ghante avoid<br>• Shift ke baad: dark room, phone silent, blackout curtains — 7 hours protected neend<br>• <b>Drive back:</b> 20+ hours jaag ke drive = alcohol jaisa impaired — cab/colleague lo",
+  src:"US NIOSH shift work guidance"},
+ {t:'Back safety & patient lifting', who:'hcw', tags:['back','pain','lifting','posture','kamar','bedside','carry patient'],
+  a:"<b>Patient lifting / long standing ke liye back safety:</b><br><br>• <b>Legs se uthao, kamar se nahi</b> — knees bend, load body ke paas<br>• Heavy patient = <b>team lift</b> ya lifting aid — akele try karna spine ka setup hai<br>• Bed height adjust karo (hip level ke aas paas)<br>• Long standing: ek pair stool pe rakho baari-baari, posture change<br><br>3+ hafte ka back pain / leg tak jata dard (sciatica signs) → physio/ortho.",
+  src:"US NIOSH lifting guidance"},
+ {t:'HCW vaccinations to stay updated', who:'hcw', tags:['vaccination','vaccine','hepatitis','immunization','tif','ti'],
+  a:"<b>Healthcare workers ke liye essential vaccines (hospital policy se confirm karo):</b><br><br>• <b>Hepatitis B</b> — 3-dose series + anti-HBs titer 1-2 mahine baad (10+ mIU/mL = protected)<br>• <b>Influenza</b> — yearly<br>• <b>COVID-19</b> — current national guidelines ke hisaab se<br>• Tetanus booster (10 saal)<br>• Exposure-prone role ho to — MMR, varicella status bhi check<br><br>Occupational health department se apna record verify karwao.",
+  src:"WHO immunization of health workers; US CDC"},
+ {t:'Biomedical waste segregation', who:'hcw', tags:['biomedical','waste','bmw','segregation','kachra','yellow bag','sharps'],
+  a:"<b>BMW Rules (India) — source pe hi segregation:</b><br><br>• <b>Yellow bag:</b> infectious waste — dressings, catheters, soiled items<br>• <b>Red:</b> contaminated recyclable — IV lines, syringes (needle hata ke)<br>• <b>White/transparent puncture-proof:</b> <b>sharps</b> — needles, blades, lancets<br>• <b>Blue:</b> glass ampoules, broken vials<br>• <b>Needle recap MAT karo</b> — straight sharps container mein<br><br>Colour coding bags se pehle koi bhi 3-sec ka rule — 80% infections rokti hai.",
+  src:"Biomedical Waste Management Rules 2016 (CPCB, India)"},
+
+ // ============ EVERYONE ============
+ {t:'Antibiotics — why full course', who:'all', tags:['antibiotic','course','amoxi','azee','tablet khud','self medication','dawai khud'],
+  a:"<b>Antibiotics ka discipline (WHO ka AMR warning):</b><br><br>• <b>Khud se antibiotics mat lo</b> — chemist se bina prescription lena illegal bhi hai aur risky bhi<br>• Doctor ne diye to <b>course poora</b> karo — beech mein chhodna resistance banata hai<br>• Viral infections (zukaam, most fevers, sore throat) pe antibiotics kaam nahi karte<br>• Bacha hua antibiotic ghar pe rakho mat — expiry + misuse dono problem<br><br><b>AMR (antimicrobial resistance)</b> — aa raha hai superbugs — India mein sabse bhi causes mein self-medication hai.",
+  src:"WHO Antimicrobial Resistance"},
+ {t:'Emergency warning signs', who:'all', tags:['emergency','112','hospital','ambulance','danger','serious'],
+  a:"<b>Ye signs = turant hospital / 112:</b><br><br>• <b>Chest pain</b> + pasina / haath mein dard<br>• <b>Stroke — FAST:</b> Face bigadna, Arm kamzori, Speech unclear, Time — har minute brain<br>• Saans lene mein dikkat (rest pe bhi)<br>• Behosh / seizure jo ruk nahi raha<br>• Zyada khoon behna<br>• Snake/scorpion bite<br><br><b>112</b> (India emergency) — ambulance + police + fire. Medical helpline: <b>104</b>.",
+  src:"National Emergency Number 112 (Govt of India)"},
+ {t:'Burns first aid', who:'all', tags:['burn','jala','scald','garam','burner','acid','first aid burn'],
+  a:"<b>Jalne pe first 10 min sabse important:</b><br><br>1. <b>Thanda behta paani 10-20 min</b> — baraf NAHI (frostbite + zyada damage)<br>2. <b>Toothpaste, ghee, cream MAT lagao</b> — infection + heat trap<br>3. Saaf kapde se loosely cover<br>4. Blister toote mat — natural dressing hai<br><br><b>Hospital jao agar:</b> face/hands/genitals/joints ka burn, bada area, ya child/buzurg. Chemical burn = 20+ min paani.",
+  src:"WHO Burns fact sheet"},
+ {t:'Cuts & bleeding first aid', who:'all', tags:['cut','chot','khoon','bleeding','laga','first aid cut','wound'],
+  a:"<b>Katne/chot pe:</b><br><br>1. Haath dhono pehle<br>2. <b>Seedha pressure</b> saaf kapde/cotton se 10 min — dekhte raho, jaldi mat karo<br>3. Body part heart se upar rakho<br>4. 10 min baad bhi ruk nahi raha / spray ho raha hai = hospital<br><br>Deep cut (gap dikhta hai), naak/munh se lagatar khoon, ya tetanus vaccination 5+ saal purana — doctor. Rust se kata ho to tetanus zaroor socho.",
+  src:"Red Cross first aid guidance"},
+ {t:'Dehydration & ORS', who:'all', tags:['dehydration','ors','pani','loose motion','diarrhea','dast','pet'],
+  a:"<b>Dehydration/loose motions pe:</b><br><br>• <b>ORS hi standard hai</b> — packet ko 1 litre paani mein, pack ke instructions se<br>• Ghut-ghut kar rozana jitna paai plus ORS<br>• Coconut paani/nimbu-paani + namak cheeni ka desi ORS bhi kaam karta hai jab packet na ho<br>• Khaate raho — khali pet mat raho<br><br><b>Hospital agar:</b> peshaab band, bachche ki nappy 6+ ghante se khaali, behosh feel, khoon aa raha, bukhar saath",
+  src:"WHO ORS formulation guidance"},
+ {t:'Anaemia — fatigue in young people', who:'all', tags:['anemia','anaemia','khoon ki kami','thakan','weak','pale','iron'],
+  a:"<b>Symptoms:</b> thakan, chamki, chakkar, saans phoolna, pallor (aankh ke andar/nakhun dekho)<br><br>• India mein young women/men mein bahut common (iron deficiency)<br>• <b>Khud iron tablets mat shuru karo</b> — pehle <b>CBC test</b> karao; reason pata karna zaroori (diet? loss? absorption?)<br>• Diet: har roz palak/chana/dates/beef... vegetarian ho to vitamin C (nimbu) ke saath iron absorption double<br>• Aur bhi — jaundice-type yellow eye, ya kaale stool ke saath — turant check",
+  src:"WHO anaemia guidance"},
+ {t:'Physical activity — weekly targets', who:'all', tags:['exercise','gym','activity','walking','yoga','fit','physical'],
+  a:"<b>WHO recommendation (18-64 saal):</b><br><br>• <b>150-300 min/week</b> medium exercise (tez walk, cycling) YA<br>• <b>75-150 min/week</b> intense (running, HIIT)<br>• <b>2 din/week strength training</b> bhi<br><br><b>Beginner jeet:</b> roz 30 min walk = 210 min/week — done! Baith ke kaam wale har ghante 3-5 min uth ke chal aao.",
+  src:"WHO Physical Activity Guidelines"}
+];
+
+/* ---------------- ENGINE ---------------- */
+function findProducts(word,cat){
+  return PRODUCTS.filter(p=>(cat?p.cat===cat:true)&&((p.name+' '+p.desc).toLowerCase().includes(word)||p.cat.includes(word)));
+}
+function productReply(matches){
+  if(!matches.length)return null;
+  const top=matches.slice(0,3);
+  return "Here are options from the Aneev shop:<br><br>"+top.map(p=>`• <b>${p.name}</b> — ${inr(p.price)}<br>${p.desc}`).join('<br><br>')+"<br><br>Scroll to the Wellness Shop section to add them to your cart, or tell me your budget and I'll narrow it down.";
+}
+function kbSearch(q){
+  const stop=['kya','karein','kaise','hai','hain','mera','meri','mujhe','please','karo','kar','kyun','kyu','karne','hote','hota','kab','kaun','batao','batado','chahiye','kliye','ka','ke','ki','mein','se','kaam','kya?'];
+  const raw=q.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(w=>w.length>2&&!stop.includes(w));
+  const toks=new Set();
+  raw.forEach(w=>{toks.add(w.endsWith('s')?w.slice(0,-1):w);});
+  if(!toks.size)return null;
+  let best=null,bs=0;
+  KB.forEach(e=>{
+    const hay=(e.t+' '+e.tags.join(' ')+' '+e.who).toLowerCase();
+    let s=0;
+    toks.forEach(t=>{if(e.tags.some(g=>g===t||g.startsWith(t)))s+=3;else if(e.t.toLowerCase().includes(t))s+=2;else if(hay.includes(t))s+=1;});
+    if(s>bs){bs=s;best=e;}
+  });
+  return bs>=3?best:null;
+}
+function kbAnswer(e){
+  const who={students:'STUDENTS',hcw:'HEALTHCARE WORKERS',all:'EVERYONE'}[e.who];
+  return `<b>${e.t}</b> <span style="font-family:var(--font-mono);font-size:.62rem;background:var(--sage-dim);color:var(--sage);padding:2px 8px;border-radius:99px;vertical-align:middle">VERIFIED</span> <span style="font-family:var(--font-mono);font-size:.6rem;color:var(--text-dim)">· ${who}</span><br><br>${e.a}<br><br><span style="font-size:.72rem;color:var(--text-dim)"><b>Source:</b> ${e.src}</span><br><span style="font-size:.7rem;color:var(--text-dim)">Education only — medical decisions ke liye qualified professional se milein.</span>`;
+}
+function relatedChips(e){
+  const pool=KB.filter(x=>x.who===e.who&&x!==e).slice(0,2);
+  const extra=KB.filter(x=>x.who!==e.who).slice(0,1);
+  return pool.concat(extra).map(x=>x.t.split(' — ')[0].split(' &')[0]);
+}
+
+/* ---------------- CHAT UI ---------------- */
+function setChips(list){
+  document.getElementById('chatChips').innerHTML=list.map(c=>`<span class="hc-chip" onclick="quickAsk('${c.replace(/'/g,"\\'")}')">${c}</span>`).join('');
+}
+let chatStarted=false;
+function toggleChat(){
+  const p=document.getElementById('chatPanel');
+  p.classList.toggle('open');
+  if(p.classList.contains('open')&&!chatStarted){chatStarted=true;botSay(HELLO+" Ask me anything about wellness — symptoms, student wellness, healthcare-worker topics (hand hygiene, PPE, needle-stick), medicines safety. Answers verified sources ke saath milte hain. What would you like to know?",CHIPS_DEFAULT);}
+  if(p.classList.contains('open'))document.getElementById('chatInput').focus();
+}
+function openChat(prefill){
+  const p=document.getElementById('chatPanel');
+  if(!p.classList.contains('open')){toggleChat();}
+  if(prefill){sendMsg(prefill);}
+}
+function quickAsk(q){sendMsg(q);}
+function pushMsg(text,who){
+  const d=document.createElement('div');
+  d.className='msg '+who;
+  d.textContent=text;
+  document.getElementById('chatMsgs').appendChild(d);
+  document.getElementById('chatMsgs').scrollTop=1e9;
+  return d;
+}
+function botSay(text,chips){
+  const t=document.createElement('div');
+  t.className='typing';t.innerHTML='<span></span><span></span><span></span>';
+  document.getElementById('chatMsgs').appendChild(t);
+  document.getElementById('chatMsgs').scrollTop=1e9;
+  setTimeout(()=>{
+    t.remove();
+    const d=document.createElement('div');d.className='msg bot';d.innerHTML=text;
+    document.getElementById('chatMsgs').appendChild(d);
+    document.getElementById('chatMsgs').scrollTop=1e9;
+    if(chips)setChips(chips);else setChips(CHIPS_DEFAULT);
+  },550+Math.random()*400);
+}
+function sendMsg(preset){
+  const input=document.getElementById('chatInput');
+  const q=(preset||input.value).trim();
+  if(!q)return;
+  input.value='';
+  pushMsg(q,'user');
+  botReply(q.toLowerCase());
+}
+
+function botReply(q){
+  const has=(...ws)=>ws.some(w=>q.includes(w));
+
+  // Emergency first
+  if(has('emergency','suicide','heart attack','stroke','unconscious','seizure','accident','bleeding heavily','112','snake bite','nahi saans')){
+    botSay("🚨 <b>This may be an emergency.</b><br><br>Please call <b>112</b> (national emergency) or <b>104</b> (medical helpline) right now, or go to the nearest hospital immediately.<br><br>Chest pain, stroke signs (face drooping, arm weakness, slurred speech), breathing trouble, heavy bleeding — do not wait for online advice.",['Thanks, I understand']);
+    return;
+  }
+
+  // Greeting
+  if(has('hi','hello','hey','namaste','namaskar')&&q.length<25){
+    botSay(HELLO+" Ask me anything about wellness — symptoms, student wellness, healthcare-worker topics (hand hygiene, PPE, needle-stick), medicines safety. Answers verified sources ke saath milte hain. What would you like to know?",CHIPS_DEFAULT);
+    return;
+  }
+
+  // Platform intents (booking / products / orders / pricing / returns / records)
+  if(has('book','consult','appointment','teleconsult')){
+    botSay("Booking a <b>teleconsultation</b> on Aneev:<br><br>1. Go to Consultations (in the app) and pick a specialty<br>2. Choose a slot — specialists are usually available within 3 minutes<br>3. Consult via video/audio from ₹199; digital prescription included<br><br>Would you like me to suggest what to prepare for the call?",['What should I prepare?']);
+    return;
+  }
+  if(has('prepare')){
+    botSay("Before a teleconsultation:<br><br>• Keep prior prescriptions and reports handy<br>• Note down symptoms — when they started, what worsens them<br>• List current medicines and allergies<br>• Keep a thermometer/BP reading if relevant<br><br>Anything else I can help with?",CHIPS_DEFAULT);
+    return;
+  }
+  if(has('track','order status','where is my order','delivery','shipped')){
+    botSay("To <b>track an order</b>:<br><br>1. Open your Aneev account → Orders<br>2. Live status: Packed → Shipped → Out for delivery<br>3. SMS/WhatsApp updates on your registered number<br><br>Orders before 4 PM usually ship same day.",CHIPS_DEFAULT);
+    return;
+  }
+  if(has('free','price','pricing','subscription','charge','budget')){
+    botSay("Aneev's simple pricing:<br><br>• <b>AI Wellness Assistant</b> — completely free, unlimited<br>• <b>Digital wellness records</b> — free<br>• <b>Medicine reminders</b> — free<br>• <b>Teleconsultations</b> — from ₹99–₹399 by specialty<br>• <b>Products</b> — MRP or below, free delivery above ₹499",CHIPS_DEFAULT);
+    return;
+  }
+  if(has('return','refund','exchange','cancel')){
+    botSay("Our <b>returns policy</b>:<br><br>• 7-day easy returns on unopened products<br>• Full refund to the original payment method within 5-7 working days<br>• Damaged/wrong item? We replace it free<br>• Medicines can't be returned once opened (regulatory rules)",CHIPS_DEFAULT);
+    return;
+  }
+  if(has('record','privacy','data','secure','history')){
+    botSay("Your <b>wellness data on Aneev</b>:<br><br>• Records, reports and prescriptions in one secure timeline<br>• Encrypted, private to your account<br>• We never sell wellness data<br>• Share a record with any physician with one tap",['Book a consultation']);
+    return;
+  }
+  if(has('product','shop','buy','show me','medicine','tablet','sanitizer','mask','vitamin','protein','price','cost')){
+    const cat=has('device','monitor','oximeter','thermometer')?'devices':has('medicine','tablet','ors')?'medicines':has('wellness','vitamin','protein')?'wellness':has('care','mask','sanitizer','cream')?'care':null;
+    let list=cat?PRODUCTS.filter(p=>p.cat===cat):PRODUCTS.slice(0,3);
+    botSay("Here's a selection from the Aneev Wellness Shop:<br><br>"+list.slice(0,4).map(p=>`• <b>${p.name}</b> — ${inr(p.price)}<br>${p.desc}`).join('<br><br>')+"<br><br>Full range in the Shop section above — delivery is free above ₹499.",CHIPS_DEFAULT);
+    return;
+  }
+
+  // Symptom guidance (classic intents)
+  if(has('fever','temperature','bukhar','100','101','102','103')){
+    botSay("<b>Fever</b> — general guidance:<br><br>• Rest and plenty of fluids (water, ORS, soup)<br>• Paracetamol 500mg as per label directions for mild fever<br>• Light clothing, airy room<br><br><b>See a physician if:</b> fever above 103°F, more than 3 days, rash, severe headache, breathlessness or persistent vomiting. Children under 5 — consult early.<br><br>Related: dehydration/ORS, emergency signs",['Dehydration & ORS','Emergency warning signs']);
+    return;
+  }
+  if(has('headache','sar dard','migraine')){
+    botSay("<b>Headache</b>:<br><br>• Rest in a quiet, dim room<br>• Hydrate — dehydration is a very common cause<br>• Paracetamol as per label directions for simple headaches<br><br><b>See a physician urgently if</b> it's the 'worst headache of your life', sudden onset, after head injury, or with fever + stiff neck, vision changes, limb weakness.<br><br>Students: screen strain + sleep deprivation is the #1 cause — check those topics.",['Eye strain from screens','Sleep — how much students need']);
+    return;
+  }
+  if(has('cold','cough','sardi','khansi','sore throat','flu','runny nose')){
+    botSay("<b>Common cold/cough</b>:<br><br>• Most settle in 5-7 days on their own<br>• Warm fluids, steam inhalation, salt-water gargles<br>• ORS/hydration and rest<br>• Antibiotics kaam nahi karte viral colds pe<br><br><b>See a physician if</b> high fever, breathlessness, chest pain, coughing blood, or symptoms beyond 10 days.",['Antibiotics — why full course','Dehydration & ORS']);
+    return;
+  }
+  if(has('child','kid','baby','bachcha','infant')){
+    botSay("<b>Children</b> — cautious approach:<br><br>• Mild fever: fluids, rest, paracetamol syrup per weight-based label dose<br>• Watch activity — a playful child is usually reassuring<br><br><b>Consult a physician promptly if:</b> under 3 months with any fever, refuses feeds, unusually sleepy, rapid breathing, dehydration signs (fewer wet nappies).<br><br>Teleconsultation with a paediatrician starts at ₹199.",['Book a consultation','Emergency warning signs']);
+    return;
+  }
+  if(has('diabetes','sugar','bp','blood pressure','hypertension')){
+    botSay("<b>Diabetes and blood pressure</b> — daily monitoring matters most:<br><br>• Check BP/sugar at the same time daily and log readings<br>• Never stop or change medicines without your physician's advice<br>• Aneev can send medicine reminders and refill nudges<br><br>We stock glucometer kits (₹1,249) and automatic BP monitors (₹1,899) — want the details?",['Show BP monitor','Show glucometer']);
+    return;
+  }
+
+  // VERIFIED KNOWLEDGE BASE SEARCH
+  const hit=kbSearch(q);
+  if(hit){botSay(kbAnswer(hit),relatedChips(hit));return;}
+
+  // Thanks / bye
+  if(has('thank','thanks','dhanyavad','shukriya','great','nice','helpful')){
+    botSay("You're most welcome! Take care of yourself and your family. I'm here 24/7 — ask me anything about wellness, student wellness, or healthcare-worker topics.",CHIPS_DEFAULT);return;
+  }
+  if(has('bye','goodbye','alvida')){
+    botSay("Goodbye, and stay well! For emergencies call 112. Aneev is here whenever you need us.",CHIPS_DEFAULT);return;
+  }
+
+  // Fallback — show what the KB covers
+  botSay("Main verified topics pe madad kar sakta hoon — try karo:<br><br>• <b>Students:</b> exam stress, sleep, diet, eye strain, mental health, smoking<br>• <b>Healthcare workers:</b> hand hygiene, PPE order, needle-stick injury, burnout, night shifts, BMW waste<br>• <b>Sabke liye:</b> fever, antibiotics, burns, cuts, dehydration, anaemia, emergency signs<br><br>Type your question:",CHIPS_DEFAULT);
+}
+
+/* ================================================================
+   REVEAL ON SCROLL
+================================================================ */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- INIT ---------- */
+renderShop();
+renderCartBadge();
+renderCart();
+</script>
+</body>
+</html>
