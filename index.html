@@ -383,6 +383,20 @@
   .success-box p{font-size:.86rem;color:var(--text-dim);margin-bottom:6px}
   .success-box .oid{font-family:var(--font-mono);font-weight:600;color:var(--teal-deep);background:var(--teal-dim);padding:6px 14px;border-radius:8px;display:inline-block;margin:10px 0 18px;font-size:.9rem}
 
+  /* ---------- Partners ---------- */
+  .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .partner{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;transition:all .25s;display:flex;flex-direction:column;
+  }
+  .partner:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+  .partner .p-logo{font-weight:800;font-size:1.05rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .partner .p-logo svg{color:var(--teal-deep);flex:none}
+  .partner p{font-size:.83rem;color:var(--text-dim);flex:1}
+  .partner .btn{margin-top:14px}
+  @media(max-width:920px){.partner-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.partner-grid{grid-template-columns:1fr}}
+
   /* ---------- Footer ---------- */
   footer{background:#0f172a;color:#cbd5e1;padding:56px 0 32px;margin-top:0}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
@@ -438,6 +452,7 @@
     <a href="#solutions" class="side-link"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Solutions</a>
     <a href="#assistant" class="side-link"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>AI Assistant</a>
     <a href="#shop" class="side-link"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Shop</a>
+    <a href="#partners" class="side-link"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Partners</a>
   </nav>
   <div class="side-foot">
     <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
@@ -638,6 +653,47 @@
   </div>
 </section>
 
+<!-- ============ PARTNERS ============ -->
+<section id="partners">
+  <div class="wrap">
+    <div class="sec-label">PARTNER STORES</div>
+    <h2>Har bharosemand healthcare store, ek jagah.</h2>
+    <p class="sec-sub">India ke top healthcare platforms — dawai, devices, lab tests aur consultations. Seedhe unke official store pe jao. (Ye abhi partner links hain — affiliate tracking judega jab account banega.)</p>
+    <div class="partner-grid">
+      <div class="partner reveal">
+        <div class="p-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Tata 1mg</div>
+        <p>Medicines, lab tests aur online consultations — India ka trusted e-pharmacy (Tata group).</p>
+        <a class="btn btn-ghost" href="https://www.1mg.com" target="_blank" rel="noopener">Visit store</a>
+      </div>
+      <div class="partner reveal">
+        <div class="p-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>PharmEasy</div>
+        <p>Medicines, OTC products aur gharon tak diagnostic tests — India ki badi pharmacy platform.</p>
+        <a class="btn btn-ghost" href="https://pharmeasy.in" target="_blank" rel="noopener">Visit store</a>
+      </div>
+      <div class="partner reveal">
+        <div class="p-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Netmeds</div>
+        <p>Prescription medicines aur healthcare products (Reliance group ki pharmacy).</p>
+        <a class="btn btn-ghost" href="https://www.netmeds.com" target="_blank" rel="noopener">Visit store</a>
+      </div>
+      <div class="partner reveal">
+        <div class="p-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Apollo 24|7</div>
+        <p>Online pharmacy, doctor consultations aur lab tests — Apollo Hospitals ka digital platform.</p>
+        <a class="btn btn-ghost" href="https://www.apollo247.com" target="_blank" rel="noopener">Visit store</a>
+      </div>
+      <div class="partner reveal">
+        <div class="p-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Amazon Health & Wellness</div>
+        <p>Health devices, wellness aur personal care products — bade choice aur bharosa dono.</p>
+        <a class="btn btn-ghost" href="https://www.amazon.in" target="_blank" rel="noopener">Visit store</a>
+      </div>
+      <div class="partner reveal">
+        <div class="p-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Practo</div>
+        <p>Doctor appointments, online consultations aur hospital info — services ke liye.</p>
+        <a class="btn btn-ghost" href="https://www.practo.com" target="_blank" rel="noopener">Visit store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
@@ -658,6 +714,7 @@
           <li><a href="#solutions">Solutions</a></li>
           <li><a href="#assistant">AI Assistant</a></li>
           <li><a href="#shop">Wellness Shop</a></li>
+          <li><a href="#partners">Partner Stores</a></li>
           <li><a href="#problems">Why Veena</a></li>
         </ul>
       </div>
