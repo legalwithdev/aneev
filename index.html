@@ -62,6 +62,7 @@
     font-size:.88rem;font-weight:600;color:var(--text-dim);transition:all .2s;
   }
   .nav-link:hover{background:var(--teal-dim);color:var(--teal-deep)}
+  .nav-link.active{background:var(--teal-dim);color:var(--teal-deep)}
   .topbar-actions{display:flex;align-items:center;gap:10px}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -149,6 +150,8 @@
 
   /* ---------- Sections ---------- */
   section{padding:72px 0}
+  .view{display:none}
+  .view.active{display:block}
   .sec-label{
     font-family:var(--font-mono);font-size:.7rem;font-weight:600;letter-spacing:.12em;
     color:var(--teal-deep);text-transform:uppercase;display:flex;align-items:center;gap:9px;margin-bottom:14px;
@@ -450,6 +453,7 @@
       <span class="tag">WELLNESS</span>
     </a>
     <nav class="nav-links" id="navMenu">
+      <a href="#hero" class="nav-link active">Home</a>
       <a href="#problems" class="nav-link">Problems</a>
       <a href="#solutions" class="nav-link">Solutions</a>
       <a href="#assistant" class="nav-link">AI Assistant</a>
@@ -473,7 +477,7 @@
 <main class="main">
 
 <!-- ============ HERO ============ -->
-<div class="hero">
+<div class="hero view active" id="hero">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><span class="dot"></span>AI-POWERED WELLNESS PLATFORM</span>
@@ -515,7 +519,7 @@
 </div>
 
 <!-- ============ PROBLEMS ============ -->
-<section class="problems" id="problems">
+<section class="problems view" id="problems">
   <div class="wrap">
     <div class="sec-label">THE PROBLEM</div>
     <h2>Wellness in India is broken in familiar ways.</h2>
@@ -532,7 +536,7 @@
 </section>
 
 <!-- ============ SOLUTIONS ============ -->
-<section id="solutions">
+<section id="solutions" class="view">
   <div class="wrap">
     <div class="sec-label">OUR SOLUTIONS</div>
     <h2>One platform, every layer of everyday wellness.</h2>
@@ -587,7 +591,7 @@
 </section>
 
 <!-- ============ SHOP ============ -->
-<section id="shop" class="problems">
+<section id="shop" class="problems view">
   <div class="wrap">
     <div class="sec-label">WELLNESS SHOP</div>
     <h2>Genuine products, honest prices.</h2>
@@ -606,7 +610,7 @@
 </section>
 
 <!-- ============ AI ASSISTANT SECTION ============ -->
-<section id="assistant">
+<section id="assistant" class="view">
   <div class="wrap ai-grid">
     <div>
       <div class="sec-label">VEENA AGENT — VERIFIED Q&A</div>
@@ -660,7 +664,7 @@
 </section>
 
 <!-- ============ PARTNERS ============ -->
-<section id="partners">
+<section id="partners" class="view">
   <div class="wrap">
     <div class="sec-label">PARTNER STORES</div>
     <h2>Har bharosemand healthcare store, ek jagah.</h2>
@@ -1238,6 +1242,20 @@ function botReply(q){
 ================================================================ */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- Single-page view switching (tabs) ---------- */
+function showSection(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));
+  window.scrollTo(0,0);
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]');
+  if(!a)return;
+  const id=a.getAttribute('href').slice(1);
+  const el=id?document.getElementById(id):null;
+  if(el&&el.classList.contains('view')){e.preventDefault();showSection(id);}
+});
 
 /* ---------- Mobile menu (hamburger) ---------- */
 function toggleSidebar(){
