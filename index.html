@@ -7,7 +7,7 @@
 <meta name="description" content="Veena — verified wellness answers for students and healthcare workers: AI agent with sourced answers (WHO/CDC/Govt of India), teleconsultations, wellness records and product shop.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#0b1120" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#170d0d" media="(prefers-color-scheme:dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,14 +20,14 @@
     --border-strong:rgba(15,23,42,.16);
     --text:#0f172a;
     --text-dim:#64748b;
-    --teal:#2563eb;
-    --teal-deep:#1d4ed8;
-    --teal-dim:rgba(37,99,235,.08);
+    --teal:#dc2626;
+    --teal-deep:#b91c1c;
+    --teal-dim:rgba(220,38,38,.08);
     --sage:#16a34a;
     --sage-dim:rgba(22,163,74,.10);
-    --amber:#0369a1;
-    --amber-dim:rgba(3,105,161,.10);
-    --rose:#e11d48;
+    --amber:#b45309;
+    --amber-dim:rgba(180,83,9,.10);
+    --rose:#be123c;
     --shadow-sm:0 1px 2px rgba(15,23,42,.05);
     --shadow-md:0 6px 24px rgba(15,23,42,.08);
     --shadow-lg:0 18px 50px rgba(15,23,42,.14);
@@ -44,7 +44,7 @@
     line-height:1.6;
     overflow-x:hidden;
   }
-  ::selection{background:rgba(37,99,235,.2)}
+  ::selection{background:rgba(220,38,38,.2)}
   .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
   .mono{font-family:var(--font-mono)}
   a{color:inherit;text-decoration:none}
@@ -58,15 +58,15 @@
   .topbar-inner{display:flex;align-items:center;gap:18px;height:68px}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.18rem;letter-spacing:-.02em}
   .logo svg{width:32px;height:32px}
-  .logo .tag{font-family:var(--font-mono);font-size:.6rem;font-weight:500;color:var(--teal-deep);background:var(--teal-dim);border:1px solid rgba(37,99,235,.25);padding:2px 8px;border-radius:99px;margin-left:4px}
-  .nav-links{display:flex;gap:2px;margin-left:auto}
+  .logo .tag{font-family:var(--font-mono);font-size:.6rem;font-weight:500;color:var(--teal-deep);background:var(--teal-dim);border:1px solid rgba(220,38,38,.25);padding:2px 8px;border-radius:99px;margin-left:4px}
+  .nav-links{display:flex;gap:2px}
   .nav-link{
     display:flex;align-items:center;padding:9px 13px;border-radius:9px;
     font-size:.88rem;font-weight:600;color:var(--text-dim);transition:all .2s;
   }
   .nav-link:hover{background:var(--teal-dim);color:var(--teal-deep)}
   .nav-link.active{background:var(--teal-dim);color:var(--teal-deep)}
-  .topbar-actions{display:flex;align-items:center;gap:10px}
+  .topbar-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     font-family:var(--font-body);font-weight:700;font-size:.92rem;
@@ -103,12 +103,13 @@
   @media(max-width:920px){
     .hamburger{display:flex}
     .nav-links{
-      position:absolute;top:68px;left:0;right:0;
-      background:var(--surface);border-bottom:1px solid var(--border);
-      flex-direction:column;gap:4px;padding:12px 16px 16px;
-      box-shadow:var(--shadow-md);display:none;
+      position:fixed;top:0;right:0;bottom:0;width:min(300px,82vw);z-index:96;
+      background:var(--surface);border-left:1px solid var(--border);
+      flex-direction:column;gap:4px;padding:84px 16px 16px;
+      box-shadow:var(--shadow-lg);
+      transform:translateX(105%);transition:transform .3s cubic-bezier(.2,.9,.3,1);
     }
-    .nav-links.open{display:flex}
+    .nav-links.open{transform:none}
   }
 
   /* ---------- Hero ---------- */
@@ -118,7 +119,7 @@
     display:inline-flex;align-items:center;gap:8px;
     font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.08em;
     color:var(--teal-deep);background:var(--teal-dim);
-    border:1px solid rgba(37,99,235,.22);padding:6px 14px;border-radius:99px;margin-bottom:22px;
+    border:1px solid rgba(220,38,38,.22);padding:6px 14px;border-radius:99px;margin-bottom:22px;
   }
   .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
   h1{font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin-bottom:20px}
@@ -138,14 +139,14 @@
   .hc-status{font-size:.72rem;color:var(--sage);display:flex;align-items:center;gap:5px}
   .hc-status .dot{width:6px;height:6px;background:var(--sage);border-radius:50%}
   .hc-msg{
-    background:var(--teal-dim);border:1px solid rgba(37,99,235,.15);
+    background:var(--teal-dim);border:1px solid rgba(220,38,38,.15);
     border-radius:4px 14px 14px 14px;padding:12px 15px;font-size:.86rem;margin-bottom:10px;
   }
   .hc-msg.user{background:var(--surface-2);border-color:var(--border);border-radius:14px 4px 14px 14px;margin-left:auto;max-width:85%}
   .hc-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
   .hc-chip{
     font-family:var(--font-mono);font-size:.68rem;font-weight:500;color:var(--teal-deep);
-    background:var(--surface);border:1px solid rgba(37,99,235,.3);
+    background:var(--surface);border:1px solid rgba(220,38,38,.3);
     padding:5px 11px;border-radius:99px;cursor:pointer;transition:all .2s;
   }
   .hc-chip:hover{background:var(--teal);color:#fff}
@@ -199,7 +200,7 @@
   .sol .badge{
     display:inline-block;margin-top:14px;font-family:var(--font-mono);font-size:.64rem;
     font-weight:600;color:var(--teal-deep);background:var(--teal-dim);
-    padding:3px 10px;border-radius:99px;border:1px solid rgba(37,99,235,.2);
+    padding:3px 10px;border-radius:99px;border:1px solid rgba(220,38,38,.2);
   }
   @media(max-width:920px){.sol-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){.sol-grid{grid-template-columns:1fr}}
@@ -240,9 +241,9 @@
     height:130px;display:flex;align-items:center;justify-content:center;color:#fff;
   }
   .prod-img svg{width:44px;height:44px;opacity:.95}
-  .pi-devices{background:linear-gradient(135deg,#1e40af,#3b82f6)}
-  .pi-medicines{background:linear-gradient(135deg,#312e81,#4f46e5)}
-  .pi-wellness{background:linear-gradient(135deg,#0369a1,#0ea5e9)}
+  .pi-devices{background:linear-gradient(135deg,#7f1d1d,#ef4444)}
+  .pi-medicines{background:linear-gradient(135deg,#4c0519,#be123c)}
+  .pi-wellness{background:linear-gradient(135deg,#7c2d12,#ea580c)}
   .pi-care{background:linear-gradient(135deg,#334155,#64748b)}
   .prod-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
   .prod-cat{font-family:var(--font-mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
@@ -252,7 +253,7 @@
   .prod-price{font-weight:800;font-size:1.05rem;color:var(--teal-deep)}
   .prod-price small{font-size:.68rem;color:var(--text-dim);font-weight:500}
   .add-btn{
-    background:var(--teal-dim);color:var(--teal-deep);border:1px solid rgba(37,99,235,.3);
+    background:var(--teal-dim);color:var(--teal-deep);border:1px solid rgba(220,38,38,.3);
     font-family:var(--font-body);font-weight:700;font-size:.76rem;
     padding:8px 14px;border-radius:9px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;
   }
@@ -408,13 +409,13 @@
   @media(max-width:600px){.partner-grid{grid-template-columns:1fr}}
 
   /* ---------- Footer ---------- */
-  footer{background:#0f172a;color:#cbd5e1;padding:56px 0 32px;margin-top:0}
+  footer{background:#450a0a;color:#cbd5e1;padding:56px 0 32px;margin-top:0}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
   @media(max-width:840px){.foot-grid{grid-template-columns:1fr}}
   footer h4{color:#fff;font-size:.85rem;font-weight:700;margin-bottom:14px}
   footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
   footer ul a{font-size:.85rem;opacity:.8;transition:opacity .2s}
-  footer ul a:hover{opacity:1;color:#93c5fd}
+  footer ul a:hover{opacity:1;color:#fecaca}
   .foot-about p{font-size:.85rem;opacity:.75;margin-top:12px;max-width:26rem}
   .foot-bottom{
     border-top:1px solid rgba(255,255,255,.1);padding-top:24px;
@@ -425,7 +426,7 @@
   /* ---------- Toast ---------- */
   .toast{
     position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(10px);
-    background:#0f172a;color:#fff;padding:11px 22px;border-radius:11px;font-size:.85rem;font-weight:600;
+    background:#450a0a;color:#fff;padding:11px 22px;border-radius:11px;font-size:.85rem;font-weight:600;
     box-shadow:var(--shadow-lg);z-index:110;opacity:0;pointer-events:none;transition:all .3s;
     display:flex;align-items:center;gap:9px;
   }
@@ -444,29 +445,29 @@
   @media(prefers-color-scheme:dark){
     :root{
       color-scheme:dark;
-      --bg:#0b1120;
-      --surface:#111a2c;
-      --surface-2:#0e1626;
+      --bg:#170d0d;
+      --surface:#221414;
+      --surface-2:#1b1010;
       --border:rgba(148,163,184,.15);
       --border-strong:rgba(148,163,184,.28);
       --text:#e2e8f0;
       --text-dim:#94a3b8;
-      --teal:#3b82f6;
-      --teal-deep:#60a5fa;
-      --teal-dim:rgba(96,165,250,.13);
+      --teal:#ef4444;
+      --teal-deep:#f87171;
+      --teal-dim:rgba(248,113,113,.14);
       --sage:#22c55e;
       --sage-dim:rgba(34,197,94,.12);
       --amber:#7dd3fc;
       --amber-dim:rgba(125,211,252,.12);
       --rose:#f43f5e;
     }
-    .topbar{background:rgba(11,17,32,.92)}
-    .msg.user{background:#2563eb}
-    .hc-avatar,.chat-head{background:linear-gradient(135deg,#2563eb,#3b82f6)}
-    .stats-band{background:linear-gradient(135deg,#1e40af,#3b82f6)}
-    .btn-primary:hover{background:#2563eb}
-    .chat-input-row button:hover{background:#2563eb}
-    .toast{background:#1e293b;border:1px solid rgba(148,163,184,.2)}
+    .topbar{background:rgba(23,13,13,.92)}
+    .msg.user{background:#dc2626}
+    .hc-avatar,.chat-head{background:linear-gradient(135deg,#dc2626,#ef4444)}
+    .stats-band{background:linear-gradient(135deg,#7f1d1d,#ef4444)}
+    .btn-primary:hover{background:#dc2626}
+    .chat-input-row button:hover{background:#dc2626}
+    .toast{background:#3b1d1d;border:1px solid rgba(148,163,184,.2)}
     .chat-panel{box-shadow:0 18px 50px rgba(0,0,0,.5)}
     .cart-drawer{box-shadow:0 18px 50px rgba(0,0,0,.5)}
     .modal-card{box-shadow:0 18px 50px rgba(0,0,0,.5)}
@@ -479,13 +480,17 @@
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a href="#" class="logo" aria-label="Veena home">
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <rect width="40" height="40" rx="11" fill="#2563eb"/>
-        <path d="M12 26V16c0-1 .3-1.8.9-2.4.6-.6 1.4-.9 2.4-.9h11.4v4H16v3.4h8.3v4H16V26h11v4H15.3c-2.2 0-3.3-1.1-3.3-3.3z" fill="#fff"/>
-      </svg>
       Veena
       <span class="tag">WELLNESS</span>
     </a>
+    <div class="topbar-actions">
+      <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Cart
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="btn btn-primary" onclick="openChat()">Ask aneeV AI</button>
+    </div>
     <nav class="nav-links" id="navMenu">
       <a href="#hero" class="nav-link active">Home</a>
       <a href="#problems" class="nav-link">Problems</a>
@@ -494,17 +499,9 @@
       <a href="#shop" class="nav-link">Shop</a>
       <a href="#partners" class="nav-link">Partners</a>
     </nav>
-    <div class="topbar-actions">
-      <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        Cart
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-      <button class="btn btn-primary" onclick="openChat()">Ask aneeV AI</button>
-      <button class="hamburger" onclick="toggleSidebar()" aria-label="Toggle menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Toggle menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
 </header>
 
@@ -744,10 +741,6 @@
     <div class="foot-grid">
       <div class="foot-about">
         <a href="#" class="logo" style="color:#fff">
-          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" style="width:30px;height:30px">
-            <rect width="40" height="40" rx="11" fill="#2563eb"/>
-            <path d="M12 26V16c0-1 .3-1.8.9-2.4.6-.6 1.4-.9 2.4-.9h11.4v4H16v3.4h8.3v4H16V26h11v4H15.3c-2.2 0-3.3-1.1-3.3-3.3z" fill="#fff"/>
-          </svg>
           Veena
         </a>
         <p>Smart, affordable and honest wellness for every Indian family. AI assistance, expert consults, digital records and a shop you can trust — all in one place.</p>
@@ -1291,12 +1284,14 @@ document.addEventListener('click',e=>{
   if(el&&el.classList.contains('view')){e.preventDefault();showSection(id);}
 });
 
-/* ---------- Mobile menu (hamburger) ---------- */
+/* ---------- Mobile menu (right-side drawer) ---------- */
 function toggleSidebar(){
   document.getElementById('navMenu').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
 }
 document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>{
   document.getElementById('navMenu').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
 }));
 
 /* ---------- INIT ---------- */
