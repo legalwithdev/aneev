@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veena — Smart Wellness for Every Indian</title>
-<meta name="description" content="Veena — verified wellness answers for students and healthcare workers: AI agent with sourced answers (WHO/CDC/Govt of India), teleconsultations, wellness records and product shop.">
+<title>veena.in — Smart Wellness for Every Indian</title>
+<meta name="description" content="veena.in — verified wellness answers for students and healthcare workers: AI agent with sourced answers (WHO/CDC/Govt of India), teleconsultations, wellness records and product shop.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">
 <meta name="theme-color" content="#170d0d" media="(prefers-color-scheme:dark)">
@@ -36,7 +36,7 @@
     --font-mono:'Azeret Mono','Courier New',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
   body{
     font-family:var(--font-body);
     background:var(--bg);
@@ -313,7 +313,7 @@
   .chat-input-row{display:flex;gap:9px;padding:12px 14px;border-top:1px solid var(--border);background:var(--surface)}
   .chat-input-row input{
     flex:1;border:1px solid var(--border-strong);border-radius:10px;padding:10px 14px;
-    font-family:var(--font-body);font-size:.86rem;outline:none;background:var(--bg);color:var(--text);
+    font-family:var(--font-body);font-size:16px;outline:none;background:var(--bg);color:var(--text);
     transition:border-color .2s;min-width:0;
   }
   .chat-input-row input:focus{border-color:var(--teal)}
@@ -370,7 +370,7 @@
   .field label{display:block;font-size:.76rem;font-weight:700;margin-bottom:5px}
   .field input,.field textarea{
     width:100%;border:1px solid var(--border-strong);border-radius:10px;padding:11px 13px;
-    font-family:var(--font-body);font-size:.88rem;outline:none;background:var(--bg);color:var(--text);
+    font-family:var(--font-body);font-size:16px;outline:none;background:var(--bg);color:var(--text);
     transition:border-color .2s;
   }
   .field input:focus,.field textarea:focus{border-color:var(--teal)}
@@ -479,8 +479,8 @@
 <!-- ============ TOP MENU BAR ============ -->
 <header class="topbar">
   <div class="wrap topbar-inner">
-    <a href="#" class="logo" aria-label="Veena home">
-      Veena
+    <a href="#" class="logo" aria-label="veena.in home">
+      veena.in
       <span class="tag">WELLNESS</span>
     </a>
     <div class="topbar-actions">
@@ -495,7 +495,7 @@
       <a href="#hero" class="nav-link active">Home</a>
       <a href="#problems" class="nav-link">Problems</a>
       <a href="#solutions" class="nav-link">Solutions</a>
-      <a href="#assistant" class="nav-link">AI Assistant</a>
+      <a href="#" class="nav-link" onclick="openChat();return false">AI Assistant</a>
       <a href="#shop" class="nav-link">Shop</a>
       <a href="#partners" class="nav-link">Partners</a>
     </nav>
@@ -741,7 +741,7 @@
     <div class="foot-grid">
       <div class="foot-about">
         <a href="#" class="logo" style="color:#fff">
-          Veena
+          veena.in
         </a>
         <p>Smart, affordable and honest wellness for every Indian family. AI assistance, expert consults, digital records and a shop you can trust — all in one place.</p>
       </div>
@@ -766,7 +766,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; 2026 VEENA WELLNESS &middot; MADE IN INDIA</span>
+      <span>&copy; 2026 veena.in &middot; MADE IN INDIA</span>
       <span>EMERGENCY: 112 &middot; MEDICAL HELPLINE: 104</span>
     </div>
   </div>
