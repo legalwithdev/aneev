@@ -114,7 +114,7 @@
 
   /* ---------- Hero ---------- */
   .hero{padding:64px 0 72px;position:relative}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero-grid{display:grid;grid-template-columns:1fr;align-items:center}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
     font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.08em;
@@ -150,7 +150,7 @@
     padding:5px 11px;border-radius:99px;cursor:pointer;transition:all .2s;
   }
   .hc-chip:hover{background:var(--teal);color:#fff}
-  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:36px}.hero{padding:56px 0 48px}}
+  @media(max-width:920px){.hero{padding:56px 0 48px}}
 
   /* ---------- Sections ---------- */
   section{padding:72px 0}
@@ -524,26 +524,6 @@
       <div class="hero-note">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         Free to use &middot; No ads &middot; Wellness data stays on your device
-      </div>
-    </div>
-
-    <div class="hero-card" aria-hidden="true">
-      <div class="hc-head">
-        <div class="hc-avatar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="0.5" width="16" height="19.5" rx="2"/><path d="M8 24h8" opacity="0"/><path d="M2 7h2M2 12h2M2 17h2M20 7h2M20 12h2M20 17h2"/><circle cx="12" cy="11" r="3"/></svg>
-        </div>
-        <div>
-          <div class="hc-name">aneev AI</div>
-          <div class="hc-status"><span class="dot"></span>Online &middot; replies instantly</div>
-        </div>
-      </div>
-      <div class="hc-msg">Namaste! I'm aneev AI — your wellness assistant. I can help you check symptoms, find the right products, book a teleconsultation or track an order. How can I help today?</div>
-      <div class="hc-msg user">I've had a headache and mild fever since morning. What should I do?</div>
-      <div class="hc-msg">I can help with that. For mild fever with headache: stay hydrated, rest, and consider paracetamol as per label instructions. If fever crosses 103&deg;F or lasts beyond 3 days, please consult a physician — you can book a teleconsultation right here. Would you like me to suggest fever-care products?</div>
-      <div class="hc-chips">
-        <span class="hc-chip" onclick="openChat('I have fever, what should I do?')">I have fever</span>
-        <span class="hc-chip" onclick="openChat('Book a consultation')">Book consult</span>
-        <span class="hc-chip" onclick="openChat('Show me your products')">Show products</span>
       </div>
     </div>
   </div>
