@@ -538,6 +538,34 @@
   @media(max-width:600px){
     .prob-grid,.sol-grid,.shops-grid,.partner-grid{grid-template-columns:1fr}
   }
+  /* ---------- Government services ---------- */
+  .gov-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+  .gov-card{border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);
+    box-shadow:var(--shadow-sm);padding:24px;display:flex;flex-direction:column;min-width:0;transition:all .25s}
+  .gov-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+  .gov-badge{align-self:flex-start;font-family:var(--font-mono);font-size:.6rem;font-weight:600;letter-spacing:.08em;
+    color:var(--sage);background:var(--sage-dim);border:1px solid rgba(31,157,85,.28);
+    padding:4px 10px;border-radius:99px;margin-bottom:14px}
+  .gov-card h3{font-size:1.02rem;font-weight:700;margin-bottom:8px}
+  .gov-card p{font-size:.86rem;color:var(--text-dim);flex:1;margin-bottom:16px}
+  .gov-card .btn{align-self:flex-start}
+  .gov-note{margin-top:24px;background:var(--surface-2);border:1px dashed var(--border-strong);
+    border-radius:var(--radius-sm);padding:18px 22px;font-size:.86rem;color:var(--text-dim);line-height:1.65}
+  #abha .gov-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #govservices .gov-grid>*:nth-child(1){grid-column:span 6}
+  #govservices .gov-grid>*:nth-child(2){grid-column:span 6}
+  #govservices .gov-grid>*:nth-child(3){grid-column:span 4}
+  #govservices .gov-grid>*:nth-child(4){grid-column:span 4}
+  #govservices .gov-grid>*:nth-child(5){grid-column:span 4}
+  #govservices .gov-grid>*:nth-child(6){grid-column:span 12}
+  @media(max-width:1020px){
+    #abha .gov-grid{grid-template-columns:repeat(2,1fr)}
+    #govservices .gov-grid{grid-template-columns:repeat(2,1fr)}
+    #govservices .gov-grid>*:nth-child(n){grid-column:auto}
+  }
+  @media(max-width:600px){
+    #abha .gov-grid,#govservices .gov-grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
@@ -585,6 +613,8 @@
         <a class="btn-ghost btn" href="#solutions">✨ Our Solutions</a>
         <a class="btn-ghost btn" href="#partners">🤝 Partner Stores</a>
         <a class="btn-ghost btn" href="#problems">❓ Why aneev?</a>
+        <a class="btn-ghost btn" href="#abha">🆔 ABHA Health ID</a>
+        <a class="btn-ghost btn" href="#govservices">🇮🇳 Govt Health Services</a>
       </div>
       <div class="trust-row">
         <span class="trust-chip"><span class="tick">&#10003;</span>&#8377;0 forever</span>
@@ -864,6 +894,58 @@
     <div class="sh-cta">
       🏪 <b>Medical shop owner?</b> Get your listing <b>free</b> — reach customers in your area on aneev. No charge.<br>
       <small style="color:var(--text-dim)">(Real listings coming soon — this is demo data)</small>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABHA (GOVERNMENT HEALTH ID) ============ -->
+<section id="abha" class="view">
+  <div class="wrap">
+    <div class="sec-label">GOVERNMENT HEALTH ID</div>
+    <h2>Get your ABHA — India's official health ID.</h2>
+    <p class="sec-sub">ABHA (Ayushman Bharat Health Account) is a free 14-digit health ID issued by the Government of India under the Ayushman Bharat Digital Mission. aneev links you to the official portal — we never ask for or store your Aadhaar.</p>
+    <div class="gov-grid">
+      <div class="gov-card reveal">
+        <div class="gov-badge">OFFICIAL · FREE</div>
+        <h3>Create your ABHA Number</h3>
+        <p>Create ABHA using Aadhaar OTP or Driving Licence on the National Health Authority's official portal. Takes a few minutes.</p>
+        <a class="btn btn-primary" href="https://abha.abdm.gov.in/abha/v3/register" target="_blank" rel="noopener">Create ABHA — official portal ↗</a>
+      </div>
+      <div class="gov-card reveal">
+        <div class="gov-badge">OFFICIAL · FREE</div>
+        <h3>ABHA app &amp; Aarogya Setu 2.0</h3>
+        <p>Manage your ABHA, store health records and share them with consent using the government's own apps and the ABDM site.</p>
+        <a class="btn btn-ghost" href="https://abdm.gov.in/" target="_blank" rel="noopener">ABDM official site ↗</a>
+      </div>
+      <div class="gov-card reveal">
+        <div class="gov-badge">HELP · FREE</div>
+        <h3>ABDM helpline</h3>
+        <p>Official ABDM toll-free helpline for ABHA questions and support (National Health Authority).</p>
+        <a class="btn btn-ghost" href="tel:1800114477">📞 1800-11-4477</a>
+      </div>
+    </div>
+    <div class="gov-note">
+      <b>Honest note (important):</b> aneev is <b>not</b> a government app and does <b>not</b> create ABHA IDs. Creating ABHA through an API requires government approval (ABDM sandbox + Health Tech Committee sign-off), which a free solo project cannot obtain. So we only link you to the official portal. <b>Never share your Aadhaar number or OTP</b> with any third-party website — including us.
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOVERNMENT HEALTH SERVICES ============ -->
+<section id="govservices" class="view">
+  <div class="wrap">
+    <div class="sec-label">GOVERNMENT HEALTH SERVICES</div>
+    <h2>Official Indian government health services.</h2>
+    <p class="sec-sub">Free, verified government services every Indian can use. Every link opens an official Government of India website — aneev does not collect or process any government ID or health data here.</p>
+    <div class="gov-grid">
+      <div class="gov-card reveal"><div class="gov-badge">OFFICIAL</div><h3>DigiLocker</h3><p>Store and share your health certificates, vaccination records and documents in the government's secure digital wallet (MeitY, Digital India).</p><a class="btn btn-ghost" href="https://www.digilocker.gov.in/" target="_blank" rel="noopener">Open DigiLocker ↗</a></div>
+      <div class="gov-card reveal"><div class="gov-badge">OFFICIAL</div><h3>e-RaktKosh — Blood availability</h3><p>Check real-time blood availability at government and licensed blood banks near you — by state, district and blood group (MoHFW).</p><a class="btn btn-ghost" href="https://eraktkosh.mohfw.gov.in/" target="_blank" rel="noopener">Find blood ↗</a></div>
+      <div class="gov-card reveal"><div class="gov-badge">OFFICIAL</div><h3>Jan Aushadhi Kendra</h3><p>Locate government-run Jan Aushadhi stores selling quality generic medicines at low prices (PMBI).</p><a class="btn btn-ghost" href="https://janaushadhi.gov.in/" target="_blank" rel="noopener">Find a Kendra ↗</a></div>
+      <div class="gov-card reveal"><div class="gov-badge">OFFICIAL</div><h3>PM-JAY (Ayushman Bharat)</h3><p>Check your family's eligibility for ₹5 lakh/year cashless hospitalisation cover under the Ayushman Bharat scheme (NHA).</p><a class="btn btn-ghost" href="https://nha.gov.in/PM-JAY" target="_blank" rel="noopener">Check eligibility ↗</a></div>
+      <div class="gov-card reveal"><div class="gov-badge">OFFICIAL</div><h3>National Health Portal</h3><p>Authenticated health information from the Ministry of Health — diseases, healthy living, national programmes and helplines.</p><a class="btn btn-ghost" href="https://www.india.gov.in/national-health-portal" target="_blank" rel="noopener">Visit NHP ↗</a></div>
+      <div class="gov-card reveal"><div class="gov-badge">OPEN DATA · FREE</div><h3>data.gov.in — Open Government Data</h3><p>India's open government data platform. Thousands of health and public datasets, free under the Government Open Data Licence — the one genuinely open API we may use for stats later.</p><a class="btn btn-ghost" href="https://www.data.gov.in/" target="_blank" rel="noopener">Explore open data ↗</a></div>
+    </div>
+    <div class="gov-note">
+      <b>Why link instead of integrate?</b> These services run on government APIs (ABDM, UHI, API Setu, DigiLocker) that need organisation registration and official approval before use — not open to a free solo project. So the honest choice is to link to the official source. <b>data.gov.in</b> is the exception: a free API key with an open licence.
     </div>
   </div>
 </section>
