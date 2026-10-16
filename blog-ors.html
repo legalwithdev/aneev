@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORS &amp; Dehydration — What Actually Works | aneev</title>
+<meta name="description" content="How to recognise dehydration and make oral rehydration solution (ORS) safely at home — the WHO recipe (half a teaspoon salt, 6 teaspoons sugar, 1 litre clean water), exact-amount warnings and when to reach a hospital. Sources: WHO, IAP, CDAC.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#141110" media="(prefers-color-scheme:dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf7;--surface:#ffffff;--surface-2:#f4f1ea;
+    --border:rgba(20,17,15,.08);--border-strong:rgba(20,17,15,.16);
+    --text:#14110f;--text-dim:#6f6862;
+    --teal:#e0342c;--teal-deep:#b21e1a;--teal-dim:rgba(224,52,44,.08);
+    --sage:#1f9d55;--sage-dim:rgba(31,157,85,.10);
+    --amber:#b45309;--amber-dim:rgba(180,83,9,.10);
+    --shadow-md:0 10px 30px rgba(20,17,15,.08);--shadow-lg:0 26px 64px rgba(20,17,15,.14);
+    --radius:22px;
+    --font-body:'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'Azeret Mono','Courier New',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden;scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  .topbar{position:sticky;top:0;z-index:94;background:rgba(251,250,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .topbar-inner{display:flex;align-items:center;gap:18px;height:68px;max-width:1160px;margin:0 auto;padding:0 24px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.18rem;letter-spacing:-.02em}
+  .logo .tag{font-family:var(--font-mono);font-size:.6rem;font-weight:500;color:var(--teal-deep);background:var(--teal-dim);border:1px solid rgba(224,52,44,.25);padding:2px 8px;border-radius:99px;margin-left:4px}
+  .nav-links{display:flex;gap:2px;margin-left:auto}
+  .nav-link{display:flex;align-items:center;padding:9px 13px;border-radius:9px;font-size:.88rem;font-weight:600;color:var(--text-dim);transition:all .2s}
+  .nav-link:hover{background:var(--teal-dim);color:var(--teal-deep)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:.92rem;border-radius:10px;padding:11px 20px;cursor:pointer;border:1px solid transparent;transition:all .2s;white-space:nowrap}
+  .btn-primary{background:var(--teal);color:#fff}
+  .btn-primary:hover{background:var(--teal-deep);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .article{padding:52px 0 72px}
+  .crumb{font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.1em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:14px}
+  h1{font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;letter-spacing:-.03em;font-weight:800;margin-bottom:14px}
+  .blog-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.82rem;color:var(--text-dim);margin-bottom:30px}
+  .blog-meta .chip{font-family:var(--font-mono);font-size:.64rem;font-weight:600;color:var(--sage);background:var(--sage-dim);border:1px solid rgba(31,157,85,.25);padding:3px 10px;border-radius:99px}
+  h2{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin:32px 0 10px}
+  p,li{font-size:.97rem;color:#2a2624}
+  ul,ol{padding-left:22px;margin:8px 0}
+  li{margin:5px 0}
+  .callout{background:var(--teal-dim);border:1px solid rgba(224,52,44,.18);border-radius:14px;padding:18px 20px;margin:22px 0;font-size:.93rem}
+  .recipe{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:22px 24px;margin:22px 0;box-shadow:var(--shadow-md)}
+  .recipe h3{font-size:1.05rem;margin-bottom:12px}
+  .recipe ul{margin:0}
+  .recipe li{font-size:.97rem}
+  .help-box{background:var(--sage-dim);border:1px solid rgba(31,157,85,.3);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .help-box h3{font-size:1rem;margin-bottom:8px}
+  .warn-box{background:var(--amber-dim);border:1px solid rgba(180,83,9,.3);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .warn-box h3{font-size:1rem;margin-bottom:8px;color:var(--amber)}
+  .src-box{background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin:28px 0;font-size:.85rem;color:var(--text-dim)}
+  .cta-box{background:linear-gradient(135deg,var(--teal-deep),var(--teal));border-radius:18px;padding:30px;color:#fff;margin:36px 0;text-align:center}
+  .cta-box h3{font-size:1.15rem;margin-bottom:6px}
+  .cta-box p{color:rgba(255,255,255,.92);font-size:.9rem}
+  .cta-box .btn{background:#fff;color:var(--teal-deep);margin-top:16px}
+  .disclaimer{font-size:.82rem;color:var(--text-dim);border-top:1px solid var(--border);padding-top:18px;margin-top:30px}
+  footer{background:#1b1512;color:#cbd5e1;padding:40px 0 28px;margin-top:40px}
+  .foot-inner{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.76rem;font-family:var(--font-mono);opacity:.7}
+  @media(prefers-color-scheme:dark){
+    :root{--bg:#141110;--surface:#1e1a18;--surface-2:#181413;--border:rgba(148,163,184,.16);--border-strong:rgba(148,163,184,.28);--text:#eae6e2;--text-dim:#a29a93;--teal:#f2604f;--teal-deep:#f5877a;--teal-dim:rgba(242,96,79,.14);--sage:#34d399;--sage-dim:rgba(52,211,153,.12);--amber:#fbbf24;--amber-dim:rgba(251,191,36,.12)}
+    p,li{color:#d9d3ce}
+    .topbar{background:rgba(20,17,16,.92)}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo" aria-label="aneev home">aneev <span class="tag">WELLNESS</span></a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#solutions" class="nav-link">Solutions</a>
+      <a href="index.html#assistant" class="nav-link">AI Assistant</a>
+      <a href="index.html#search" class="nav-link">Search</a>
+    </nav>
+    <a href="index.html" class="btn btn-primary">Ask aneev AI</a>
+  </div>
+</header>
+
+<main class="article">
+  <div class="wrap">
+    <div class="crumb">EVERYDAY WELLNESS GUIDE</div>
+    <h1>ORS &amp; Dehydration — What Actually Works</h1>
+    <div class="blog-meta">
+      <span class="chip">VERIFIED SOURCES</span>
+      <span>aneev AI · Everyday Wellness Series</span>
+      <span>·</span>
+      <span>~5 min read</span>
+    </div>
+
+    <p>Loose motions, vomiting and heavy heat all drain water and salts from the body. The simple, proven fix is <b>oral rehydration solution (ORS)</b> — a measured mix of salt, sugar and clean water. The WHO notes ORS can successfully treat a large share of dehydration cases, and it costs almost nothing.</p>
+
+    <h2>Signs of dehydration</h2>
+    <ul>
+      <li>Dry mouth, thirst, or dark yellow urine</li>
+      <li>Feeling weak, dizzy or light-headed on standing</li>
+      <li>Sunken eyes, or skin that stays pinched when gently released</li>
+      <li>In babies — fewer wet nappies, drowsiness, crying without tears</li>
+      <li>Muscle cramps</li>
+    </ul>
+
+    <h2>The WHO home ORS recipe</h2>
+    <p>If you do not have a ready ORS sachet, the WHO gives this home recipe for one litre of solution:</p>
+    <div class="recipe">
+      <h3>Home ORS — 1 litre</h3>
+      <ul>
+        <li><b>Half a level teaspoon of salt</b></li>
+        <li><b>Six level teaspoons of sugar</b></li>
+        <li><b>One litre of clean, safe drinking water</b> (boiled and cooled is safest)</li>
+      </ul>
+      <p style="margin-top:10px;font-size:.9rem;color:var(--text-dim)">Stir until the salt and sugar dissolve completely. Drink it in small sips, regularly.</p>
+    </div>
+
+    <div class="warn-box">
+      <h3>Measure carefully — this matters</h3>
+      <p>The amounts must be exact. Indian Academy of Pediatrics guidance warns that <b>too much sugar can make diarrhoea worse</b>, and <b>too much salt is dangerous</b> (it can raise sodium to unsafe levels). Use level spoons, not heaped ones.</p>
+    </div>
+
+    <h2>If you have an ORS packet</h2>
+    <ol>
+      <li>Wash your hands first.</li>
+      <li>Mix the whole sachet in exactly the amount of clean water printed on the packet (usually one litre).</li>
+      <li>Add <b>water only</b> — never milk, soup, fruit juice or soft drinks.</li>
+      <li>Stir well and give it from a clean cup or spoon (not a bottle).</li>
+      <li>Use it within <b>24 hours</b>; throw away any unused solution after that.</li>
+    </ol>
+
+    <h2>Good habits alongside ORS</h2>
+    <ul>
+      <li>Keep drinking in small, frequent sips — especially after every loose stool.</li>
+      <li>Continue eating and breastfeeding where possible; don't starve.</li>
+      <li>If the person vomits, wait about 10 minutes, then resume slowly with a teaspoon every few minutes — vomiting usually settles.</li>
+      <li>Plain water alone is not enough for significant diarrhoea — the salts and sugar matter.</li>
+    </ul>
+
+    <div class="callout">
+      <b>Remember:</b> home ORS does not stop diarrhoea. It prevents the body from drying out while the illness runs its course. Watch the person, not just the drink.
+    </div>
+
+    <div class="help-box">
+      <h3>Go to a hospital immediately if</h3>
+      <ul>
+        <li>There is blood in the stools, or severe stomach pain</li>
+        <li>The person cannot drink, keeps vomiting everything, or is very drowsy or unconscious</li>
+        <li>There are no tears, no urine for many hours, or sunken eyes in a child</li>
+        <li>High fever, or symptoms lasting more than a couple of days</li>
+      </ul>
+      <p style="margin-bottom:0">Dehydration can become life-threatening, especially in infants and older adults. Do not wait. Emergency: <b>112</b>. Medical helpline: <b>104</b>.</p>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ask aneev AI for more — free, 24/7</h3>
+      <p>Fever, dehydration, when to see a doctor, first aid — verified answers, with sources.</p>
+      <a href="index.html" class="btn">Chat with aneev AI</a>
+    </div>
+
+    <div class="src-box">
+      <b>Sources (for education):</b><br>
+      • WHO — oral rehydration solution (ORS) guidance and home recipe<br>
+      • Indian Academy of Pediatrics (IAP) — home ORS preparation and safety warnings<br>
+      • CDAC Network — preparing and using ORS safely<br>
+      • Govt of India helplines — 112 (emergency), 104 (medical)
+    </div>
+
+    <p class="disclaimer"><b>Disclaimer:</b> This article is general wellness information for educational purposes — not a substitute for professional medical advice, diagnosis or treatment. Always consult a qualified physician. In an emergency, call 112 (India) immediately.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>&copy; 2026 aneev &middot; MADE IN INDIA</span>
+    <span>EMERGENCY: 112 &middot; MEDICAL HELPLINE: 104</span>
+  </div>
+</footer>
+</body>
+</html>
