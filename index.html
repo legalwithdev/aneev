@@ -566,6 +566,27 @@
   @media(max-width:600px){
     #abha .gov-grid,#govservices .gov-grid{grid-template-columns:1fr}
   }
+  /* ---------- Government open data (data.gov.in) ---------- */
+  .govdata-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);box-shadow:var(--shadow-sm)}
+  table.govdata{border-collapse:collapse;width:100%;font-size:.85rem;min-width:520px}
+  table.govdata th,table.govdata td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--text)}
+  table.govdata th{font-weight:700;background:var(--surface-2);font-size:.78rem;letter-spacing:.02em}
+  table.govdata tbody tr:last-child td{border-bottom:none}
+  .govdata-meta{font-size:.78rem;color:var(--text-dim);margin-top:14px;line-height:1.6}
+  .govdata-meta b{color:var(--text)}
+  /* ---------- Verified search (Google Programmable Search Engine) ---------- */
+  .search-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm)}
+  .search-box .gsc-control{width:100%!important;max-width:100%!important}
+  .search-box .gsc-control-cse{background:transparent!important;border:none!important;padding:0!important;font-family:var(--font-body)!important}
+  .search-box form.gsc-search-box,.search-box table.gsc-search-box{width:100%!important}
+  .search-box .gsc-input-box{width:100%!important;border:1px solid var(--border-strong)!important;border-radius:10px!important}
+  .search-box td.gsc-input{width:100%!important;padding:0!important}
+  .search-box .gsc-search-box td.gsc-search-button{display:table-cell!important;vertical-align:middle!important;padding:0 0 0 10px!important}
+  .search-box button.gsc-search-button,.search-box .gsc-search-button-v2{display:inline-block!important;width:auto!important;height:44px!important;padding:0 20px!important;background:var(--teal)!important;border:none!important;border-radius:10px!important;cursor:pointer!important;box-shadow:none!important}
+  .search-box button.gsc-search-button svg{fill:#fff!important;width:16px!important;height:16px!important;display:block!important}
+  .search-box .gsc-input{height:44px!important}
+  .search-box .gsc-results{border:none!important}
+  .search-box .gsc-search-box td{padding:0!important}
 </style>
 </head>
 <body>
@@ -615,6 +636,7 @@
         <a class="btn-ghost btn" href="#problems">❓ Why aneev?</a>
         <a class="btn-ghost btn" href="#abha">🆔 ABHA Health ID</a>
         <a class="btn-ghost btn" href="#govservices">🇮🇳 Govt Health Services</a>
+        <a class="btn-ghost btn" href="#search">🔍 Verified Search</a>
       </div>
       <div class="trust-row">
         <span class="trust-chip"><span class="tick">&#10003;</span>&#8377;0 forever</span>
@@ -947,6 +969,33 @@
     <div class="gov-note">
       <b>Why link instead of integrate?</b> These services run on government APIs (ABDM, UHI, API Setu, DigiLocker) that need organisation registration and official approval before use — not open to a free solo project. So the honest choice is to link to the official source. <b>data.gov.in</b> is the exception: a free API key with an open licence.
     </div>
+  </div>
+</section>
+
+<!-- ============ VERIFIED SEARCH (Google Programmable Search Engine) ============ -->
+<section id="search" class="view">
+  <div class="wrap">
+    <div class="sec-label">VERIFIED SEARCH</div>
+    <h2>Search trusted health &amp; legal sources.</h2>
+    <p class="sec-sub">A Google-powered search box. Results are provided by Google — aneev does not host, curate or own them.</p>
+    <div class="search-box">
+      <script async src="https://cse.google.com/cse.js?cx=05bca850e1d814a8f"></script>
+      <div class="gcse-search"></div>
+    </div>
+    <div class="gov-note">
+      <b>Honest note:</b> This search is powered by <b>Google Programmable Search Engine</b> and is governed by Google's terms. aneev does not control or endorse the results, and free Google search engines may display ads. For any medical or legal matter, always consult a qualified professional.
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOVERNMENT OPEN DATA (data.gov.in) ============ -->
+<section id="govdata" class="view" style="display:none">
+  <div class="wrap">
+    <div class="sec-label">OPEN GOVERNMENT DATA</div>
+    <h2>Live data from the Government of India.</h2>
+    <p class="sec-sub" id="govdataSub">Official dataset published on data.gov.in (Open Government Data Platform India). Shown for information only.</p>
+    <div class="govdata-wrap"><table class="govdata" id="govdataTable"></table></div>
+    <div class="govdata-meta" id="govdataMeta"></div>
   </div>
 </section>
 
@@ -1520,6 +1569,35 @@ document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=
   document.getElementById('navMenu').classList.remove('open');
   document.getElementById('overlay').classList.remove('show');
 }));
+
+/* ---------- Government open data (data.gov.in) — via secure server-side proxy ---------- */
+(function(){
+  var sec=document.getElementById('govdata');
+  if(!sec) return;
+  var tbl=document.getElementById('govdataTable'),
+      meta=document.getElementById('govdataMeta'),
+      sub=document.getElementById('govdataSub');
+  function esc(v){
+    if(v===null||v===undefined) return '';
+    return String(v).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});
+  }
+  fetch('/api/gov-data?limit=20').then(function(r){return r.json();}).then(function(d){
+    if(!d||!d.ok||!Array.isArray(d.records)||!d.records.length) return; /* stay hidden */
+    var keys=[];
+    if(Array.isArray(d.fields)&&d.fields.length){keys=d.fields.slice();}
+    if(!keys.length){keys=Object.keys(d.records[0]).filter(function(k){return k!=='id';});}
+    keys=keys.slice(0,6);
+    var h='<thead><tr>';
+    keys.forEach(function(k){h+='<th>'+esc(String(k).replace(/_/g,' '))+'</th>';});
+    h+='</tr></thead><tbody>';
+    d.records.forEach(function(r){h+='<tr>';keys.forEach(function(k){h+='<td>'+esc(r[k])+'</td>';});h+='</tr>';});
+    h+='</tbody>';
+    tbl.innerHTML=h;
+    if(d.title){sub.textContent='Official dataset: '+d.title+' — published on data.gov.in (Open Government Data Platform India). Shown for information only.';}
+    meta.innerHTML='Source: <b>data.gov.in</b> — Open Government Data Platform India'+(d.total?(' · '+d.total+' records'):'')+' · Published under the Government Open Data Licence (GODL). Not an endorsement by the Government of India.';
+    sec.style.display='block';
+  }).catch(function(){});
+})();
 
 /* ---------- INIT ---------- */
 renderShop();
