@@ -622,6 +622,49 @@
   .mental-grid>*:nth-child(6){grid-column:span 12}
   @media(max-width:1020px){.mental-grid{grid-template-columns:repeat(2,1fr)}.mental-grid>*:nth-child(n){grid-column:auto}}
   @media(max-width:600px){.mental-grid{grid-template-columns:1fr}}
+  /* ===== Gen-Z layer: vibrant gradients, glass, big type ===== */
+  :root{--neon:#C6FF3D;--cyan:#22D3EE;--violet:#8B5CF6;--pink:#FF4D9D;
+    --glass:rgba(255,255,255,.06);--glass-brd:rgba(255,255,255,.14)}
+  body{background:
+      radial-gradient(900px 620px at 6% -6%,rgba(139,92,246,.30),transparent 60%),
+      radial-gradient(820px 540px at 96% 0%,rgba(34,211,238,.22),transparent 60%),
+      radial-gradient(760px 760px at 50% 112%,rgba(198,255,61,.12),transparent 60%),
+      #0A1730;
+    background-attachment:fixed}
+  h1{font-weight:800;letter-spacing:-.045em;font-size:clamp(2.5rem,7vw,4.4rem);line-height:1.02}
+  h1 em{background:linear-gradient(100deg,var(--neon),var(--cyan) 48%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{letter-spacing:-.032em;font-size:clamp(1.65rem,3.6vw,2.5rem);font-weight:800}
+  .eyebrow{background:var(--glass);border:1px solid var(--glass-brd);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .eyebrow .dot{background:var(--neon);box-shadow:0 0 12px var(--neon)}
+  .sec-label{color:var(--neon)}
+  .sec-label::before{background:var(--neon)}
+  .trust-chip,.mental-card,.prob,.sol,.partner,.shop-entry,.gov-card,.search-box,.govdata-wrap,.ai-feat{
+    background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.028));
+    border:1px solid var(--glass-brd);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .trust-chip{border-radius:99px;color:#fff}
+  .btn{border-radius:99px;font-weight:800}
+  .btn-primary{background:linear-gradient(100deg,var(--cyan),var(--violet));color:#06122A;box-shadow:0 10px 34px rgba(34,211,238,.34)}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-2px) scale(1.02);box-shadow:0 14px 40px rgba(139,92,246,.45)}
+  .btn-ghost{border:1px solid var(--glass-brd);background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff}
+  .btn-ghost:hover{border-color:var(--neon);color:var(--neon);background:rgba(198,255,61,.08)}
+  .sol-icon,.mental-card .m-ico{background:linear-gradient(135deg,rgba(34,211,238,.28),rgba(139,92,246,.28));color:#fff;border:1px solid var(--glass-brd)}
+  .mental-card:hover,.prob:hover,.sol:hover,.partner:hover,.shop-entry:hover,.gov-card:hover{transform:translateY(-6px) rotate(-.35deg);box-shadow:0 18px 44px rgba(0,0,0,.45)}
+  .mental-card h3,.sol h3,.prob h3{letter-spacing:-.02em}
+  .gov-badge{background:rgba(198,255,61,.14);border-color:rgba(198,255,61,.4);color:var(--neon)}
+  .badge{background:rgba(34,211,238,.14);border-color:rgba(34,211,238,.4);color:var(--cyan)}
+  .logo{letter-spacing:-.03em}
+  .logo .tag{background:linear-gradient(100deg,var(--cyan),var(--violet));color:#06122A;border:none;font-weight:700}
+  /* marquee ticker */
+  .gz-marquee{overflow:hidden;border-top:1px solid var(--glass-brd);border-bottom:1px solid var(--glass-brd);
+    background:linear-gradient(90deg,rgba(139,92,246,.22),rgba(34,211,238,.22),rgba(198,255,61,.14));white-space:nowrap;padding:11px 0}
+  .gz-marquee .track{display:inline-block;animation:gzscroll 28s linear infinite;font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.14em;color:#fff}
+  .gz-marquee .track span{padding:0 16px}
+  @keyframes gzscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.gz-marquee .track{animation:none}}
+  /* sticker */
+  .gz-sticker{display:inline-block;background:var(--neon);color:#0A1730;font-weight:800;font-size:.7rem;letter-spacing:.06em;
+    padding:6px 12px;border-radius:99px;transform:rotate(-3deg);box-shadow:0 8px 24px rgba(198,255,61,.32);margin-left:10px}
+  .hero-note{color:#B9C6E4}
 </style>
 </head>
 <body>
@@ -650,6 +693,14 @@
   </div>
 </header>
 
+<!-- ============ GEN-Z MARQUEE TICKER ============ -->
+<div class="gz-marquee" aria-hidden="true">
+  <div class="track">
+    <span>🧠 MENTAL WELLNESS FIRST</span><span>✦</span><span>24/7 AI SUPPORT</span><span>✦</span><span>100% FREE FOREVER</span><span>✦</span><span>NO ADS</span><span>✦</span><span>VERIFIED SOURCES</span><span>✦</span><span>HELPLINE 14416</span><span>✦</span>
+    <span>🧠 MENTAL WELLNESS FIRST</span><span>✦</span><span>24/7 AI SUPPORT</span><span>✦</span><span>100% FREE FOREVER</span><span>✦</span><span>NO ADS</span><span>✦</span><span>VERIFIED SOURCES</span><span>✦</span><span>HELPLINE 14416</span><span>✦</span>
+  </div>
+</div>
+
 <main class="main">
 
 <!-- ============ VERIFIED SEARCH (Google Programmable Search Engine) ============ -->
@@ -672,7 +723,7 @@
 <div class="hero view active" id="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span>MENTAL WELLNESS FIRST · FREE · 24/7</span>
+      <span class="eyebrow"><span class="dot"></span>MENTAL WELLNESS FIRST · FREE · 24/7</span><span class="gz-sticker">NO ADS &middot; NO FAKE CLAIMS</span>
       <h1>Your mind matters. <em>You are not alone.</em></h1>
       <p class="lead">aneev is a free, judgement-free mental wellness companion — a 24/7 AI assistant with verified answers, evidence-based guides, and India's official helplines. General support and information — not a substitute for professional care.</p>
       <div class="hero-ctas">
