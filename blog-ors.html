@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ORS &amp; Dehydration — What Actually Works | aneev</title>
 <meta name="description" content="How to recognise dehydration and make oral rehydration solution (ORS) safely at home — the WHO recipe (half a teaspoon salt, 6 teaspoons sugar, 1 litre clean water), exact-amount warnings and when to reach a hospital. Sources: WHO, IAP, CDAC.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#141110" media="(prefers-color-scheme:dark)">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A1730" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#0A1730" media="(prefers-color-scheme:dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#fbfaf7;--surface:#ffffff;--surface-2:#f4f1ea;
-    --border:rgba(20,17,15,.08);--border-strong:rgba(20,17,15,.16);
-    --text:#14110f;--text-dim:#6f6862;
-    --teal:#e0342c;--teal-deep:#b21e1a;--teal-dim:rgba(224,52,44,.08);
-    --sage:#1f9d55;--sage-dim:rgba(31,157,85,.10);
-    --amber:#b45309;--amber-dim:rgba(180,83,9,.10);
-    --shadow-md:0 10px 30px rgba(20,17,15,.08);--shadow-lg:0 26px 64px rgba(20,17,15,.14);
+    --bg:#0A1730;--surface:#0F2043;--surface-2:#0C1B39;
+    --border:rgba(255,255,255,.12);--border-strong:rgba(255,255,255,.22);
+    --text:#FFFFFF;--text-dim:#A9B7D4;
+    --teal:#2F6BFF;--teal-deep:#9CC0FF;--teal-dim:rgba(47,107,255,.18);
+    --sage:#4ADE80;--sage-dim:rgba(74,222,128,.14);
+    --amber:#FBBF24;--amber-dim:rgba(251,191,36,.14);
+    --shadow-md:0 10px 30px rgba(0,0,0,.08);--shadow-lg:0 26px 64px rgba(0,0,0,.14);
     --radius:22px;
     --font-body:'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif;
     --font-mono:'Azeret Mono','Courier New',monospace;
@@ -32,7 +32,7 @@
   .topbar{position:sticky;top:0;z-index:94;background:rgba(251,250,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
   .topbar-inner{display:flex;align-items:center;gap:18px;height:68px;max-width:1160px;margin:0 auto;padding:0 24px}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.18rem;letter-spacing:-.02em}
-  .logo .tag{font-family:var(--font-mono);font-size:.6rem;font-weight:500;color:var(--teal-deep);background:var(--teal-dim);border:1px solid rgba(224,52,44,.25);padding:2px 8px;border-radius:99px;margin-left:4px}
+  .logo .tag{font-family:var(--font-mono);font-size:.6rem;font-weight:500;color:var(--teal-deep);background:var(--teal-dim);border:1px solid rgba(47,107,255,.25);padding:2px 8px;border-radius:99px;margin-left:4px}
   .nav-links{display:flex;gap:2px;margin-left:auto}
   .nav-link{display:flex;align-items:center;padding:9px 13px;border-radius:9px;font-size:.88rem;font-weight:600;color:var(--text-dim);transition:all .2s}
   .nav-link:hover{background:var(--teal-dim);color:var(--teal-deep)}
@@ -43,19 +43,19 @@
   .crumb{font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.1em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:14px}
   h1{font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;letter-spacing:-.03em;font-weight:800;margin-bottom:14px}
   .blog-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.82rem;color:var(--text-dim);margin-bottom:30px}
-  .blog-meta .chip{font-family:var(--font-mono);font-size:.64rem;font-weight:600;color:var(--sage);background:var(--sage-dim);border:1px solid rgba(31,157,85,.25);padding:3px 10px;border-radius:99px}
+  .blog-meta .chip{font-family:var(--font-mono);font-size:.64rem;font-weight:600;color:var(--sage);background:var(--sage-dim);border:1px solid rgba(74,222,128,.25);padding:3px 10px;border-radius:99px}
   h2{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin:32px 0 10px}
-  p,li{font-size:.97rem;color:#2a2624}
+  p,li{font-size:.97rem;color:#DCE6F7}
   ul,ol{padding-left:22px;margin:8px 0}
   li{margin:5px 0}
-  .callout{background:var(--teal-dim);border:1px solid rgba(224,52,44,.18);border-radius:14px;padding:18px 20px;margin:22px 0;font-size:.93rem}
+  .callout{background:var(--teal-dim);border:1px solid rgba(47,107,255,.18);border-radius:14px;padding:18px 20px;margin:22px 0;font-size:.93rem}
   .recipe{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:22px 24px;margin:22px 0;box-shadow:var(--shadow-md)}
   .recipe h3{font-size:1.05rem;margin-bottom:12px}
   .recipe ul{margin:0}
   .recipe li{font-size:.97rem}
-  .help-box{background:var(--sage-dim);border:1px solid rgba(31,157,85,.3);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .help-box{background:var(--sage-dim);border:1px solid rgba(74,222,128,.3);border-radius:14px;padding:20px 22px;margin:24px 0}
   .help-box h3{font-size:1rem;margin-bottom:8px}
-  .warn-box{background:var(--amber-dim);border:1px solid rgba(180,83,9,.3);border-radius:14px;padding:20px 22px;margin:24px 0}
+  .warn-box{background:var(--amber-dim);border:1px solid rgba(251,191,36,.3);border-radius:14px;padding:20px 22px;margin:24px 0}
   .warn-box h3{font-size:1rem;margin-bottom:8px;color:var(--amber)}
   .src-box{background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin:28px 0;font-size:.85rem;color:var(--text-dim)}
   .cta-box{background:linear-gradient(135deg,var(--teal-deep),var(--teal));border-radius:18px;padding:30px;color:#fff;margin:36px 0;text-align:center}
@@ -63,13 +63,28 @@
   .cta-box p{color:rgba(255,255,255,.92);font-size:.9rem}
   .cta-box .btn{background:#fff;color:var(--teal-deep);margin-top:16px}
   .disclaimer{font-size:.82rem;color:var(--text-dim);border-top:1px solid var(--border);padding-top:18px;margin-top:30px}
-  footer{background:#1b1512;color:#cbd5e1;padding:40px 0 28px;margin-top:40px}
+  footer{background:#08122A;color:#cbd5e1;padding:40px 0 28px;margin-top:40px}
   .foot-inner{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.76rem;font-family:var(--font-mono);opacity:.7}
-  @media(prefers-color-scheme:dark){
-    :root{--bg:#141110;--surface:#1e1a18;--surface-2:#181413;--border:rgba(148,163,184,.16);--border-strong:rgba(148,163,184,.28);--text:#eae6e2;--text-dim:#a29a93;--teal:#f2604f;--teal-deep:#f5877a;--teal-dim:rgba(242,96,79,.14);--sage:#34d399;--sage-dim:rgba(52,211,153,.12);--amber:#fbbf24;--amber-dim:rgba(251,191,36,.12)}
-    p,li{color:#d9d3ce}
-    .topbar{background:rgba(20,17,16,.92)}
-  }
+  
+
+  /* ===== aneev theme: dark navy + white (permanent) ===== */
+  .topbar,header{background:rgba(10,23,48,.92)!important}
+  .btn-primary:hover{background:#1E4FD8!important}
+  .msg.user{background:#1E4FD8!important}
+  .hc-avatar,.chat-fab{background:linear-gradient(135deg,#2F6BFF,#1E4FD8)!important}
+  .chat-head{background:linear-gradient(135deg,#1E4FD8,#2F6BFF)!important}
+  .stats-band{background:linear-gradient(135deg,#1E4FD8,#2F6BFF)!important}
+  .chat-input-row button:hover{background:#1E4FD8!important}
+  .toast{background:#132A52!important}
+  footer{background:#08122A!important}
+  .cta-box{background:linear-gradient(135deg,#1E4FD8,#2F6BFF)!important}
+  .hero{background:radial-gradient(1100px 520px at 10% -12%,rgba(47,107,255,.20),transparent 60%),radial-gradient(900px 480px at 94% 6%,rgba(47,107,255,.12),transparent 58%)!important}
+  .pi-devices{background:linear-gradient(135deg,#0F2043,#2F6BFF)!important}
+  .pi-medicines{background:linear-gradient(135deg,#0A1730,#1E4FD8)!important}
+  .pi-wellness{background:linear-gradient(135deg,#0F2043,#4A8BFF)!important}
+  .pi-care{background:linear-gradient(135deg,#22314F,#5B7BB0)!important}
+  footer ul a:hover{color:#9CC0FF!important}
+  .alert{background:rgba(47,107,255,.12)!important;border-color:rgba(47,107,255,.35)!important}
 </style>
 </head>
 <body>
