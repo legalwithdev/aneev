@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>aneev — Smart Wellness for Every Indian</title>
-<meta name="description" content="aneev — verified wellness answers for students and healthcare workers: AI agent with sourced answers (WHO/CDC/Govt of India), demo wellness shop and verified wellness guides.">
+<title>aneev — Mental Wellness Support for Every Indian</title>
+<meta name="description" content="aneev — a free, judgement-free mental wellness platform: a 24/7 AI assistant with verified answers (WHO/CDC/Govt of India), evidence-based mental-health guides, and India's official helplines (Tele-MANAS 14416). General information and support — not a substitute for professional care.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0A1730" media="(prefers-color-scheme:light)">
 <meta name="theme-color" content="#0A1730" media="(prefers-color-scheme:dark)">
@@ -598,6 +598,30 @@
   .pi-care{background:linear-gradient(135deg,#22314F,#5B7BB0)!important}
   footer ul a:hover{color:#9CC0FF!important}
   .alert{background:rgba(47,107,255,.12)!important;border-color:rgba(47,107,255,.35)!important}
+  /* ---------- Mental wellness (core) ---------- */
+  .helpline-band{background:linear-gradient(135deg,#7A1F3D,#B3325A);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:20px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow-md)}
+  .helpline-band .hb-ico{font-size:1.6rem;line-height:1}
+  .helpline-band .hb-txt{flex:1;min-width:220px}
+  .helpline-band h3{font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px}
+  .helpline-band p{font-size:.84rem;color:rgba(255,255,255,.88);margin:0}
+  .helpline-band .hb-nums{display:flex;gap:10px;flex-wrap:wrap}
+  .helpline-band a{background:#fff;color:#7A1F3D;font-weight:800;font-size:.84rem;padding:9px 14px;border-radius:10px;white-space:nowrap}
+  .helpline-band a:hover{background:#FFE9F0}
+  .mental-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+  .mental-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);min-width:0;transition:all .25s}
+  .mental-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+  .mental-card .m-ico{width:44px;height:44px;border-radius:12px;background:var(--teal-dim);color:#9CC0FF;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:14px}
+  .mental-card h3{font-size:1.02rem;font-weight:700;margin-bottom:8px}
+  .mental-card p{font-size:.87rem;color:var(--text-dim)}
+  .mental-card a.m-link{display:inline-block;margin-top:12px;font-weight:700;font-size:.85rem;color:#9CC0FF}
+  .mental-grid>*:nth-child(1){grid-column:span 6}
+  .mental-grid>*:nth-child(2){grid-column:span 6}
+  .mental-grid>*:nth-child(3){grid-column:span 4}
+  .mental-grid>*:nth-child(4){grid-column:span 4}
+  .mental-grid>*:nth-child(5){grid-column:span 4}
+  .mental-grid>*:nth-child(6){grid-column:span 12}
+  @media(max-width:1020px){.mental-grid{grid-template-columns:repeat(2,1fr)}.mental-grid>*:nth-child(n){grid-column:auto}}
+  @media(max-width:600px){.mental-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -648,14 +672,16 @@
 <div class="hero view active" id="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span>AI-POWERED WELLNESS PLATFORM</span>
-      <h1>Wellness that <em>listens</em>, <em>understands</em> and <em>delivers</em>.</h1>
-      <p class="lead">aneev brings a free 24/7 AI wellness assistant with verified answers — expert teleconsultations, digital wellness records and a wellness product shop are coming soon.</p>
+      <span class="eyebrow"><span class="dot"></span>MENTAL WELLNESS FIRST · FREE · 24/7</span>
+      <h1>Your mind matters. <em>You are not alone.</em></h1>
+      <p class="lead">aneev is a free, judgement-free mental wellness companion — a 24/7 AI assistant with verified answers, evidence-based guides, and India's official helplines. General support and information — not a substitute for professional care.</p>
       <div class="hero-ctas">
         <button class="btn btn-primary" onclick="openChat()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Chat with AI Assistant
         </button>
+        <a class="btn-ghost btn" href="#mental">🧠 Mental Wellness</a>
+        <a class="btn-ghost btn" href="#helpline">🆘 Helpline</a>
         <a class="btn-ghost btn" href="#shop">🛍️ Browse Wellness Shop</a>
         <a class="btn-ghost btn" href="#shops">🏪 Medical Shops Near You</a>
         <a class="btn-ghost btn" href="#solutions">✨ Our Solutions</a>
@@ -670,6 +696,8 @@
         <span class="trust-chip"><span class="tick">&#10003;</span>No ads</span>
         <span class="trust-chip"><span class="tick">&#10003;</span>Verified sources</span>
         <span class="trust-chip"><span class="tick">&#10003;</span>No fake claims</span>
+        <span class="trust-chip"><span class="tick">&#10003;</span>Judgement-free</span>
+        <span class="trust-chip"><span class="tick">&#10003;</span>24/7 helplines</span>
       </div>
       <div class="hero-note">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -678,6 +706,44 @@
     </div>
   </div>
 </div>
+
+<!-- ============ HELPLINE / CRISIS SUPPORT ============ -->
+<section id="helpline" class="view" style="padding-top:14px;padding-bottom:14px">
+  <div class="wrap">
+    <div class="helpline-band">
+      <div class="hb-ico">🆘</div>
+      <div class="hb-txt">
+        <h3>In crisis, or just need to talk? Free help is available 24/7.</h3>
+        <p>India's official mental-health helplines — free, confidential, in multiple languages. You are not alone.</p>
+      </div>
+      <div class="hb-nums">
+        <a href="tel:14416">📞 Tele-MANAS 14416</a>
+        <a href="tel:18005990019">📞 KIRAN 1800-599-0019</a>
+        <a href="tel:112">🚨 Emergency 112</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENTAL WELLNESS (CORE) ============ -->
+<section id="mental" class="view">
+  <div class="wrap">
+    <div class="sec-label">MENTAL WELLNESS — ANEEV'S CORE</div>
+    <h2>Mental health is health. aneev is built around it.</h2>
+    <p class="sec-sub">Free, judgement-free support and evidence-based information for your mind — plus India's official helplines when you need a human. aneev provides general information and support; it is not a substitute for professional care.</p>
+    <div class="mental-grid">
+      <div class="mental-card reveal"><div class="m-ico">💬</div><h3>Talk it out — 24/7, private</h3><p>Share how you feel with the aneev AI. No sign-up, no judgement, and nothing saved on any server. It gives calm, source-based guidance and points you to real help.</p><a class="m-link" href="#" onclick="openChat('I want to talk about how I feel');return false">Start a private chat &rarr;</a></div>
+      <div class="mental-card reveal"><div class="m-ico">📚</div><h3>Evidence-based guides</h3><p>Anxiety, low mood, stress, sleep, panic and burnout — plain-language guides with verified sources (WHO, NHS, NIH, Govt of India).</p><a class="m-link" href="blog-anxiety.html">Read: Anxiety &rarr;</a></div>
+      <div class="mental-card reveal"><div class="m-ico">🆘</div><h3>Helplines &amp; crisis support</h3><p>Tele-MANAS 14416, KIRAN 1800-599-0019 and emergency 112 — free and 24/7. If you have thoughts of harming yourself, please reach out now.</p><a class="m-link" href="#helpline">See helplines &rarr;</a></div>
+      <div class="mental-card reveal"><div class="m-ico">🧑⚕️</div><h3>When to see a professional</h3><p>The signs that it is time to talk to a physician, psychologist or counsellor — and how to find one.</p><a class="m-link" href="blog-low-mood.html">Read: Low mood &amp; getting help &rarr;</a></div>
+      <div class="mental-card reveal"><div class="m-ico">🎓</div><h3>Students</h3><p>Exam stress, performance pressure, sleep and burnout — practical, evidence-based help for students.</p><a class="m-link" href="blog-exam-stress.html">Read: Exam stress &rarr;</a></div>
+      <div class="mental-card reveal"><div class="m-ico">🩺</div><h3>Healthcare workers</h3><p>Burnout, night shifts and the emotional weight of caring for others — how to protect your own mind while you care.</p><a class="m-link" href="#" onclick="openChat('Signs of burnout');return false">Ask about burnout &rarr;</a></div>
+    </div>
+    <div class="gov-note">
+      <b>Honest note:</b> aneev is an <b>information and support</b> platform — it is <b>not</b> a therapist, a diagnosis, a crisis line, or a replacement for professional care. In an emergency, or if you are thinking of harming yourself, call <b>112</b> or <b>Tele-MANAS 14416</b> right away. aneev does not store your chats.
+    </div>
+  </div>
+</section>
 
 <!-- ============ PROBLEMS ============ -->
 <section class="problems view" id="problems">
@@ -1023,6 +1089,10 @@
       <div>
         <h4>Platform</h4>
         <ul>
+          <li><a href="#mental">Mental Wellness</a></li>
+          <li><a href="#helpline">Helplines &amp; Crisis Support</a></li>
+          <li><a href="blog-anxiety.html">Guide: Anxiety</a></li>
+          <li><a href="blog-low-mood.html">Guide: Low Mood</a></li>
           <li><a href="#solutions">Solutions</a></li>
           <li><a href="#assistant">AI Assistant</a></li>
           <li><a href="#shop">Wellness Shop</a></li>
@@ -1303,11 +1373,30 @@ function showToast(msg){
    aneev AI — verified knowledge base engine (students + HCWs)
    Curated from WHO / CDC / Govt of India sources. Education only.
 ================================================================ */
-const HELLO="Namaste! I'm aneev AI.";
-const CHIPS_DEFAULT=['How do I manage exam stress?','What to do for a needle-stick injury?','Hand hygiene — WHO 5 moments','What are the signs of burnout?','How much sleep do I need?','Why should I complete antibiotic courses?'];
+const HELLO="Namaste! I'm aneev AI — your mental wellness companion.";
+const CHIPS_DEFAULT=['I feel anxious — what can I do?','How do I deal with low mood?','Panic attack — what to do?','Exam stress is overwhelming','Trouble sleeping — help','When should I see a professional?'];
 
 /* ---------------- VERIFIED KNOWLEDGE BASE ---------------- */
 const KB=[
+ // ============ MENTAL WELLNESS (CORE) ============
+ {t:'I feel anxious — what helps', who:'mental', tags:['anxiety','anxious','ghabrahat','panic','nervous','worry','tension','dar','bechain','overthinking'],
+  a:"<b>Anxiety — what actually helps:</b><br><br>• <b>Slow your breathing:</b> in for 4 seconds, hold 4, out for 6 — for 2-3 minutes. Slow breathing calms the body's alarm.<br>• <b>Name it:</b> tell yourself 'this is anxiety, and it will pass' — naming it lowers the fear of the feeling.<br>• <b>Move:</b> a brisk 10-20 minute walk burns off adrenaline.<br>• <b>Cut caffeine:</b> it mimics and worsens anxiety.<br>• <b>Protect sleep:</b> poor sleep makes anxiety much worse the next day.<br>• <b>Limit doom-scrolling</b> — it feeds worry.<br><br><b>Get help if</b> anxiety is most days for 2+ weeks, stops you studying/working, or comes with panic attacks. Free 24/7 <b>Tele-MANAS: 14416</b>.",
+  src:"WHO; NHS (UK) anxiety guidance; Tele-MANAS (MoHFW, Govt of India)"},
+ {t:'Panic attack — what to do', who:'mental', tags:['panic attack','panic','ghabrahat','heart racing','saans','breathless','darr','shaking'],
+  a:"<b>During a panic attack:</b><br><br>• It feels terrifying but it is <b>not dangerous</b> and it passes — usually within 5-20 minutes.<br>• <b>Breathe slowly:</b> in 4, hold 4, out 6. Focus on the out-breath.<br>• <b>Ground yourself:</b> name 5 things you can see, 4 you can touch, 3 you can hear.<br>• Do not fight it — let it peak and fall.<br>• Cool water on the face helps; sit somewhere safe.<br><br><b>Get it checked</b> if it is your first attack (some physical causes look similar), and see a professional if attacks recur — they are very treatable. Free 24/7 <b>Tele-MANAS: 14416</b>.",
+  src:"NHS (UK); WHO; Tele-MANAS (MoHFW)"},
+ {t:'Low mood & depression — when to get help', who:'mental', tags:['depression','low mood','udaas','sad','empty','hopeless','mood','interest','depressed','kuch acha nahi lagta'],
+  a:"<b>Sadness vs depression:</b> sadness is normal and passes. Depression is different — it lasts <b>2+ weeks</b> and affects daily life.<br><br><b>Common signs:</b><br>• Low or empty mood most of the day<br>• Loss of interest or pleasure in things you used to enjoy<br>• Sleep and appetite changed (too much or too little)<br>• Tiredness, poor concentration, guilt, hopelessness<br><br><b>What helps:</b> talking therapy (counselling/CBT) and, when needed, medicines — both work, and a physician or psychiatrist decides. You do not have to manage alone.<br><br><b>If you have thoughts of harming yourself, please reach out now</b> — <b>Tele-MANAS 14416</b> (free, 24/7) or <b>112</b>.",
+  src:"WHO; NHS (UK); Tele-MANAS (MoHFW, Govt of India)"},
+ {t:'Stress — managing everyday stress', who:'mental', tags:['stress','tension','pressure','overwhelm','workload','thak','burnout'],
+  a:"<b>Managing everyday stress:</b><br><br>• <b>Breathe and move:</b> slow breathing plus a daily walk lower stress hormones.<br>• <b>Protect sleep</b> — it is your main recovery tool.<br>• <b>One thing at a time:</b> write a short list and do the next small step.<br>• <b>Say no sometimes</b> — over-commitment is a top cause of burnout.<br>• <b>Talk to someone</b> you trust; do not bottle it up.<br>• <b>Limit alcohol and caffeine</b> — they feel like relief but raise stress.<br><br><b>If stress is constant for weeks and affecting sleep, health or work</b>, it is time to speak to a professional. Free <b>Tele-MANAS: 14416</b>.",
+  src:"WHO stress management; NHS (UK)"},
+ {t:'Sleep and mental health', who:'mental', tags:['sleep','neend','insomnia','raat','jagna','anxiety','mood'],
+  a:"<b>Sleep and mood are linked both ways</b> — poor sleep worsens anxiety and low mood, and anxiety or low mood wreck sleep.<br><br>• Fixed sleep and wake times, even on weekends<br>• Room cool, dark and quiet; screens off before bed<br>• No caffeine in the afternoon or evening; no heavy meals or alcohol late<br>• If you cannot sleep, get up and do something calm, then return to bed<br>• Daytime movement helps night sleep<br><br><b>See a professional</b> if sleep problems last 3+ weeks, or you feel low or anxious alongside. Free <b>Tele-MANAS: 14416</b>.",
+  src:"NHS (UK); US CDC; NIH (NHLBI)"},
+ {t:'Feeling lonely or overwhelmed', who:'mental', tags:['lonely','alone','akela','isolated','overwhelmed','no one','friends','family'],
+  a:"<b>Loneliness is common — and it is not a personal failure.</b><br><br>• <b>Reach out to one person</b> today — a message counts.<br>• <b>Small routines help:</b> a walk, a class or a shared activity — connection grows from repetition.<br>• <b>Be kind to yourself</b> — harsh self-talk deepens isolation.<br>• <b>Volunteering or a group</b> gives both purpose and contact.<br><br><b>If loneliness comes with hopelessness or thoughts of self-harm, please talk to someone now</b> — <b>Tele-MANAS 14416</b> (free, 24/7) or <b>KIRAN 1800-599-0019</b>.",
+  src:"WHO; NHS (UK); Tele-MANAS and KIRAN (Govt of India)"},
  // ============ STUDENTS ============
  {t:'Exam stress & anxiety', who:'students', tags:['exam','stress','anxiety','padhai','test','tension','panic','nervous','pressure','board'],
   a:"<b>Exam stress</b> — evidence-based ways to manage:<br><br>• <b>Take breaks:</b> 25-50 min study + 5-10 min break (Pomodoro method) — memory consolidates<br>• <b>Sleep 7-9 hours:</b> all-nighters reduce recall, they don't improve it<br>• <b>Move:</b> 20-30 min walk/exercise lowers cortisol (the stress hormone)<br>• <b>Limit caffeine:</b> avoid energy drinks/coffee at night — they worsen anxiety<br>• <b>Practice exams:</b> time-bound mock tests significantly reduce real exam anxiety (research-backed)<br><br><b>Seeking help is normal:</b> if 2+ weeks of low mood, hopelessness, or panic attacks — free 24/7 <b>Tele-MANAS: 14416</b> (Govt of India).",
